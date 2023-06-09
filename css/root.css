@@ -1,0 +1,20 @@
+@import url("./reset.css");
+@import url("./font.css");
+
+:root {
+    --giallo: #ffbd59;
+    --blu: #3b6f96;
+    --panna: #fef7e6;
+
+    --fontCP-regular: "CodecPro";
+    --fontCP-regularI: "CodecPro italic";
+    --fontCP-bold: "CodecProBold";
+    --fontCP-boldI: "CodecProBold italic";
+}
+
+body{
+    font-family: var(--fontCP-regular);
+    letter-spacing: 0.022em; /* non lo prende */
+    background-color: var(--giallo); /* test for navbar */
+
+}

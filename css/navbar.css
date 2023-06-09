@@ -1,0 +1,56 @@
+nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(-3vmin);
+
+    /* navbar rimane ferma */
+    position: fixed;
+    top: 0;
+    width: 100%;
+
+    margin-right: 100%;
+}
+
+.logo {
+    width: 30%;
+}
+
+.nav-button {
+    width: 7.5%;
+    font-size: 4vmin;
+    padding:0.5% 0.1%;
+    border: none;
+    margin-right: 1%;
+    border-radius: 13px;
+    background-color: var(--blu);
+    color: white;
+    font-weight: bold;
+    letter-spacing: 0.022em;
+}
+
+.nav-icon {
+    width: 9vmin;
+    height: 9vmin;
+    padding:0.5% 0.1%;
+    border: none;
+    margin-right: 1%;
+    border-radius: 13px;
+    background-color: var(--blu);
+
+    /* le icone sono al centro del bottone*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.nav-icon .cerca{
+    height: 170%;
+}
+.nav-icon .carrello{
+    height: 150%;
+    transform: translateY(0.5vmin);
+}

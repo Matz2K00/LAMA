@@ -1,0 +1,38 @@
+body {
+    background-color: rgb(255, 179, 0);
+    /* background-image: linear-gradient(to top, var(--bianco) 0%, var(--marrone-chiaro) 100%); */
+    /* background-attachment: fixed;
+    background-repeat: no-repeat; */
+    /* opacity: .95; */
+    margin: 0;
+}
+header {
+    margin: 2% auto 10% auto;
+    color: var(--marrone-scuro);
+    text-align: center;
+}
+
+.home {
+    background-color: var(--marrone-scuro);
+    height: 50%;
+    width: 100%;
+}
+.home button {
+    color: var(--marrone-scuro);
+    background-color: var(--bianco);
+    width: 30%;
+}
+.home h2 {
+    color: var(--bianco);
+    letter-spacing: 0.1em;
+}
+.home .d img {
+    filter: var(--filter-bianco);
+    transform: translateY(46pt);
+}
+.home img {
+    position: relative;
+    z-index: 1;
+    height: 200pt;
+    transform: translateY(46pt);
+}
