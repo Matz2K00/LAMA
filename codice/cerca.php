@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <!-- <link rel="stylesheet" type="text/css" href="../css/root.css"> -->
+  <!-- <link rel="stylesheet" type="text/css" href="../css/navbar.css">
+  <link rel="stylesheet" type="text/css" href="../css/footer.css">
+  <link rel="stylesheet" type="text/css" href="../css/home.css"> -->
+  <title>LAMA</title>
+  <meta name="keywords " content="LAMA">
+  <meta name="author " content="Belloni Laura, Contegno Matteo">
+</head>
+<body>
+<?php //include 'navbar.php';?>
+
+<h1>Cerca</h1>
+
+<form action="cerca.php" method="GET">
+  <button type="submit"><img class="cerca" src="../assets/icon/navbar/Cerca-senzasfondo.png" alt="icona bianca di una lente di ingrandimento stilizzato" height="30"></button>
+  <input type="text" name="keyword" placeholder="Cerca" 
+    <?php 
+    if(!empty($_GET['keyword'])) {
+      echo 'value="' . $_GET['keyword'] . '" style="color: #3b6f96;"';
+    }
+    ?>
+  >
+</form>
+<script>
+function handleKeyPress(event) {
+if (event.keyCode === 13) {
+    event.preventDefault();
+    document.getElementById("searchForm").submit();
+    }
+}
+var inputField = document.querySelector('input[name='keyword']');
+inputField.addEventListener('keypress', handleKeyPress);
+</script>
+
+<?php
+require 'db.php';
+$conn = new mysqli($hostData, $userData, $paswData, $database);
+if ($conn->connect_error) {
+  die("Connessione al database fallita: " . $conn->connect_error);
+  header("Location: signUp.php");
+  exit();
+}
+
+$corsiPerPagina = 9;
+if (isset($_GET['keyword']) && !empty($_GET['keyword'])) {
+  $keywordEscape = htmlspecialchars($_GET['keyword']);
+  $keyword = "%$keywordEscape%";
+  $sql = "SELECT * FROM Corsi 
+          WHERE titolo LIKE ? 
+          OR autore LIKE ? 
+          OR descrizione LIKE ? 
+          OR altImg LIKE ? ";
+  $stmt = $conn->prepare($sql);
+  $stmt->bind_param("ssss", $keyword, $keyword, $keyword, $keyword);
+
+  $sqlCount = "SELECT COUNT(*) AS total FROM Corsi
+          WHERE titolo LIKE ? 
+          OR autore LIKE ? 
+          OR descrizione LIKE ?
+          OR altImg LIKE ? ";
+  $stmtCount = $conn->prepare($sqlCount);
+  $stmtCount->bind_param("ssss", $keyword, $keyword, $keyword, $keyword);
+
+  $start = "<p>Risultati per: <b>" . $keywordEscape . "</b></p>";
+  $end = "<p>Non ci sono corsi disponibili per: <b>" . $keywordEscape . "</b></p>";
+}
+else{
+  $sql = "SELECT * FROM Corsi";
+  $stmt = $conn->prepare($sql);
+
+  $sqlCount = "SELECT COUNT(*) AS total FROM Corsi";
+  $stmtCount = $conn->prepare($sqlCount);
+
+  $start = "<p>Tutti i <b>nostri</b> corsi</p>";
+  $end = "<p>Corsi esauriti</p>";
+}
+require "corsiPerPagina.php";
+include "indicePagina.php";
+// non so su cosa fare unset
+unset($keyword);
+// unset($keywordEscape);
+// unset($_GET['keyword']);
+$stmt->close();
+$stmtCount->close();
+$stmtWithLimit->close();
+$conn->close();
+?>
+
+<?php //include 'footer.php';?>
+</body>
+</html>
