@@ -3,7 +3,7 @@ if (!isset($_POST['id_corso'])) {
   echo "Valore non ricevuto";
   exit();
 }
-include 'cookie.php';
+// include 'cookie.php';
 $id_corso = intval($_POST['id_corso']);
 $corsi = $_COOKIE['corsi'];
 $corsi = unserialize($corsi);

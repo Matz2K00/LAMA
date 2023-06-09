@@ -57,7 +57,15 @@ if ($result->num_rows > 0) {
 <p>Il corso sarà disponibile<br>in <b>I miei corsi</b><br>Non ha una scadenza</p>
 <p>Potrai guardarlo più volte<br>nell'ordine che preferisci</p>
 
-<button id="aggiungiAlCarrello" onclick="showCheck()">Aggiungi al carrello</button>
+<?php 
+include 'cookie.php';
+if (in_array($id, $corsi)) {
+  
+  echo '<button>Aggiunto al carrello</button>';
+} else {
+  echo '<button id="aggiungiAlCarrello" onclick="showCheck()">Aggiungi al carrello</button>';
+}
+?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
 $(document).ready(function() {
@@ -68,9 +76,9 @@ $(document).ready(function() {
             type: "POST",
             data: { id_corso: id_corso }, 
             success: function(response) {
-              setTimeout(function() {
-                location.reload();
-              }, 500); // Ritardo di 500 millisecondi (mezzo secondo)
+              // setTimeout(function() {
+              //   location.reload();
+              // }, 5000); // Ritardo di 500 millisecondi (mezzo secondo)
             }
         });
     });

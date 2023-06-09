@@ -1,0 +1,38 @@
+------------------PAGINE HTML------------------
+---------------private
+
+acquistoABuonFine
+esci
+imieicorsi
+modifica-password
+show_profile
+---------------pubbliche
+accesso
+signUp
+carrello
+cerca
+home
+------------------PAGINE PHP------------------
+aggiungi al carrello
+rimuoviDalCarrello
+svuotaIlCarrello
+cookie 
+corsiPerPagina
+indicePagina
+db
+isNotAlreadyLog
+login
+logout
+registration
+sessionStart
+update_profile
+vaiAlCorso
+valutazione
+video-comprato
+video-NOcomprato
+
+------------------PARTICOLARI------------------
+navbar
+footer
+navbar-NOprofilo
+navbar-profilo

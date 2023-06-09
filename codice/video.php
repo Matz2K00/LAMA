@@ -23,6 +23,7 @@ require 'sessionStart.php';
 
 if(!isset($_SESSION['id_corso'])){
   echo "<p> Non ci sono video selezionati</p>";
+
   exit();
 }
 $id_corso = $_SESSION['id_corso'];
@@ -39,11 +40,11 @@ $stmt->execute();
 $result = $stmt->get_result();
 
 if ($result->num_rows <= 0){
-  echo "<p> Non hai comprato questo corso </p>";
+  echo "<p>Non hai comprato questo corso </p>";
   include 'video-NOcomprato.php';
 }
 else {
-  echo "<p> Hai comprato questo corso </p>";
+  echo "<p>Hai comprato questo corso </p>";
   include 'video-comprato.php';
 }
 $stmt->close();

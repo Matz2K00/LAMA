@@ -14,11 +14,11 @@
 
 <?php require 'sessionStart.php';?>
    <div class="nav">
-      <?php include 'navbar.php';?>
+      <?php //include 'navbar.php';?>
    </div>
 
-<div class="pag1"> sfondo immagine ondina
-   <p><?php echo isset($_SESSION["nomeutente"]) ? "Benvenutx ".$_SESSION["nomeutente"] : "Impara con<br>LAMA"; ?></p>
+<div class="pag1">
+   <p><?php echo isset($_SESSION["nomeutente"]) ? "Benvenutx ".$_SESSION["nomeutente"] : "Impara con LAMA"; ?></p>
    <p>I tuoi corsi ovunque!</p>
    <p>Trova quello<br>fatto apposta per te</p>
 </div>
@@ -26,13 +26,21 @@
 <div class="pag2">
 <p>I <b>nostri</b> corsi</p>
    <?php
-   require 'db.php';
    $corsiPerPagina = 3;
-   $sql="SELECT * FROM Corsi ";
-   $sqlCount="SELECT COUNT(*) AS total FROM Corsi ";
+
+   require 'db.php';
+   $conn = new mysqli($hostData, $userData, $paswData, $database);
+   
+   $sql="SELECT * FROM Corsi";
+   $stmt = $conn->prepare($sql);
+
+   $sqlCount="SELECT COUNT(*) AS total FROM Corsi";
+   $stmtCount = $conn->prepare($sqlCount);
+
    $start = "";
    $end = "";
    require "corsiPerPagina.php";
+   $stmt->close();
    $conn->close();
    ?>
    <a href="cerca.php"><button>Vai a tutti i corsi</button></a>
