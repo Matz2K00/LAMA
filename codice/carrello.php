@@ -122,63 +122,105 @@ for ($i = 0; $i < count($array); $i++) {
       </button>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
       <script src="../typescript/click.js"></script>
+      
       <img  class="rimuoviDalCarrello" data-id-corso="<?php echo $id_corso_cookie; ?>"src="../assets/icon/cestino.svg" alt="icona di un cestino stilizzato" height="30">
-      <br>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+      <script src="../typescript/click.js"></script>
       <script>
-        $(document).ready(function() {
-          $(".rimuoviDalCarrello").click(function() {
-            var id_corso = $(this).data("id-corso");
-            $.ajax({
-              url: "rimuoviDalCarrello.php", 
-              type: "POST",
-              data: { id_corso: id_corso }, 
-              success: function(response) {
-                console.log(response);
-                location.reload();
-              }
-            });
+      $(document).ready(function() {
+        $(".rimuoviDalCarrello").click(function() {
+          var id_corso = $(this).data("id-corso");
+          $.ajax({
+            url: "rimuoviDalCarrello.php", 
+            type: "POST",
+            data: { id_corso: id_corso }, 
+            success: function(response) {
+              console.log(response);
+              location.reload();
+            }
           });
         });
+      });
       </script>
       </div>
-      <br>
-    <?php
-    $totalePrezzo += $prezzo;
+      <?php
+      $totalePrezzo += $prezzo;
     }
   } else {
     echo "<p> Il corso aggiunto al carrello non esiste più! </p>";
   }
 }
-
+$stmt->close();
+$conn->close();
 ?>
 
 <div><p>Totale prezzo:</p><p><?php echo $totalePrezzo; ?> €</p></div>
 
-<button>Vai al pagamento</button>
+<?php
+if(!isset($_SESSION['id_utente'])){ //&& !isset($_COOKIE['logid'])){
+  
+  $nome = 'primaAccedi';
+  $acquisti = true;
+  setcookie($nome, $acquisti, time() + 60, '/'); // un minuto
+
+  echo '<button class="primaAccedi">Vai al pagamento</button> ';
+?>
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var button = document.querySelector('.primaAccedi');
+    button.addEventListener('click', function() {
+      window.location.href = 'accesso.php';
+    });
+  });
+  </script>
+<?php
+} else {
+  echo '<button class="vaiAlPagamento">Vai al pagamento</button> ';
+  ?>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="../typescript/click.js"></script>
+  <script>
+  $(document).ready(function() {
+    $(".vaiAlPagamento").click(function() {
+      $.ajax({
+        url: "vaiAlPagamento.php", 
+        type: "POST",
+        success: function(response) {
+          $("#rispostaVaiAlPagamento").html(response);
+        }
+      });
+    });
+  });
+  </script>
+  <div id="rispostaVaiAlPagamento"></div>
+  <?php
+}
+?>
+
+
+
 <a href="cerca.php"><p>Vedi altri corsi</p></a>
 
 <button class="svuotaIlCarrello">Svuota il carrello</button> 
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-      <script>
-        $(document).ready(function() {
-          $(".svuotaIlCarrello").click(function() {
-            $.ajax({
-              url: "svuotaIlCarrello.php", 
-              type: "POST",
-              success: function(response) {
-                console.log(response);
-                location.reload();
-              }
-            });
-          });
-        });
-      </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="../typescript/click.js"></script>
+<script>
+  $(document).ready(function() {
+    $(".svuotaIlCarrello").click(function() {
+      $.ajax({
+        url: "svuotaIlCarrello.php", 
+        type: "POST",
+        success: function(response) {
+          console.log(response);
+        }
+      });
+    });
+  });
+</script>
 <?php
-// $nomeCookie = 'corsi';
-// $scadenza = time() - 3600;
-// setcookie($nomeCookie, null, $scadenza, "/");
 ?>
 <?php //include 'footer.php';?>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="../typescript/click.js"></script>
 </body>
 </html>

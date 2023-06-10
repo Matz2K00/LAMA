@@ -6,7 +6,7 @@
 <link rel="stylesheet" type="text/css" href="../css/navbar.css">
 <link rel="stylesheet" type="text/css" href="../css/footer.css">
 <link rel="stylesheet" type="text/css" href="../css/form.css">
-<link rel="stylesheet" type="text/css" href="../css/profilo.css">
+<!-- <link rel="stylesheet" type="text/css" href="../css/profilo.css"> -->
 <title>LAMA</title>
 <meta name="keywords " content="LAMA">
 <meta name="author " content="Belloni Laura, Contegno Matteo">
@@ -40,6 +40,7 @@ $connessione = new mysqli($hostData, $userData, $paswData, $database);
 ?>
 <div class="profilo">
 	<div class="boxFormSx">
+		<a href="modifica-avatar.php"><img  class="profilo" src="../assets/icon/navbar/<?php echo $row['imgAvatar']?>.png" alt="icona grafica stilizzata di una persona con i capelli castano il cappello nero e gli occhiali" height="300"></a>
 		<p>Informazioni principali:</p>
 		<form method="post" action="update_profile.php">
 			<input type="text" name="firstname" value="<?php echo $row['nome']; ?>">
@@ -60,7 +61,10 @@ $connessione = new mysqli($hostData, $userData, $paswData, $database);
 		</form>
 	</div>
 </div>
-
+<?php
+$stmt->close();
+$conn->close();
+?>
 
 </body>
 </html>

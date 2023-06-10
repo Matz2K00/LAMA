@@ -71,6 +71,7 @@ if ($result->num_rows > 0) {
         });
       </script> -->
     <?php 
+    $stmt->close();
   }
 } else {
   echo "Non hai comprato nessun corso $email";

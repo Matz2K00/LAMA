@@ -89,7 +89,50 @@ function showCheck() {
 }
 </script>
 
-<button>Acquista ora</button>
+
+
+
+<?php
+$_SESSION['id_corso'] = $id_corso;
+if(!isset($_SESSION['id_utente'])){ //&& !isset($_COOKIE['logid'])){
+  $nome = 'acquistaOra';
+  $acquisti = true;
+  setcookie($nome, $acquisti, time() + 60, '/'); // un minuto
+  echo '<button class="primaAccedi">Acquista ora</button> ';
+?>
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var button = document.querySelector('.primaAccedi');
+    button.addEventListener('click', function() {
+      window.location.href = 'accesso.php';
+    });
+  });
+  </script>
+<?php
+} else {
+  echo '<button class="acquistaOra">Acquista ora</button> ';
+  ?>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="../typescript/click.js"></script>
+  <script>
+  $(document).ready(function() {
+    $(".acquistaOra").click(function() {
+      $.ajax({
+        url: "acquistaOra.php", 
+        type: "POST",
+        success: function(response) {
+          $("#rispostaAcquistaOra").html(response);
+        }
+      });
+    });
+  });
+  </script>
+  <div id="rispostaAcquistaOra"></div>
+  <?php
+}
+?>
+
+
 </div>
   
   <a href="cerca.php">Altri corsi</a>

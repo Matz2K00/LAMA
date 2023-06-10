@@ -12,8 +12,12 @@
 </head>
 <body>
 <?php //include 'navbar.php';?>
+<?php
+require 'sessionStart.php';
 
 
+?>
+<a href="cerca.php"><p>Vedi altri corsi</p></a>
 <?php //include 'footer.php';?>
 </body>
 </html>

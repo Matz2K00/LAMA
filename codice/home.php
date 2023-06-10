@@ -14,7 +14,7 @@
 
 <?php require 'sessionStart.php';?>
    <div class="nav">
-      <?php //include 'navbar.php';?>
+      <?php include 'navbar.php';?>
    </div>
 
 <div class="pag1">
@@ -26,6 +26,15 @@
 <div class="pag2">
 <p>I <b>nostri</b> corsi</p>
    <?php
+   if(isset($_COOKIE['primaAccedi'])){
+      header("Location: carrello.php");
+      exit();
+   }
+   if(isset($_COOKie['acquistaOra'])){ // fai un cookieeeeee!!!
+      header("Location: video.php");
+      exit();
+   }
+   
    $corsiPerPagina = 3;
 
    require 'db.php';
