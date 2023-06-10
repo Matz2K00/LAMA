@@ -11,7 +11,7 @@ require "isNotAlreadyLog.php";
 		$confirm = trim($_POST["confirm"]);
 
 		if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-			$_SESSION["error"] = "Email non valida<br>";
+			$_SESSION["error"] = "Email non valida php";
 			header("Location: signUp.php");
 			exit();
 		}

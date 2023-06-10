@@ -1,40 +1,54 @@
-function validateFormR(event: Event) {
-    event.preventDefault(); // Previene l'invio del form se ci sono errori
-
+function firstnameOK(event: Event) {
     const firstname = (document.getElementById("firstname") as HTMLInputElement).value.trim();
-    const lastname = (document.getElementById("lastname") as HTMLInputElement).value.trim();
-    const email = (document.getElementById("email") as HTMLInputElement).value.trim();
-    const password = (document.getElementById("password") as HTMLInputElement).value.trim();
-    const confirm = (document.getElementById("confirm") as HTMLInputElement).value.trim();
-
-    // Verifica se tutti i campi sono stati compilati
-    if (!firstname || !lastname || !email || !password || !confirm) {
-        showErrorR("Inserisci tutti i dati nel form");
+    if (!firstname) {
+        showErrorR("Inserisci il nome");
         return;
     }
+}
 
+function lastnameOK(event: Event) {
+    const lastname = (document.getElementById("lastname") as HTMLInputElement).value.trim();
+    if (!lastname) {
+        showErrorR("Inserisci il cognome");
+        return;
+    }
+}
+
+function emailOK(event: Event) {
+    const email = (document.getElementById("email") as HTMLInputElement).value.trim();
+    if (!email) {
+        showErrorR("Inserisci l'email");
+        return;
+    }
     const emailRegex = /^(\s)*([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+(\s)*$/;
     if (!emailRegex.test(email)) {
         showErrorR("Email non valida");
         return;
-    }   
+    } 
+}
 
-    // Verifica la lunghezza della password
+function passwordOK(event: Event) {
+    const password = (document.getElementById("pass") as HTMLInputElement).value.trim();
+    if (!password) {
+        showErrorR("Inserisci la password");
+        return;
+    }
     if (password.length < 10) {
         showErrorR("Inserisci una password di almeno 10 caratteri");
         return;
     }
+}
 
-    // Verifica se la password e la conferma corrispondono
+function confirmOK(event: Event) {
+    const confirm = (document.getElementById("confirm") as HTMLInputElement).value.trim();
+    if (!confirm) {
+        showErrorR("Conferma la password");
+        return;
+    }
+    const password = (document.getElementById("password") as HTMLInputElement).value.trim();
     if (password !== confirm) {
         showErrorR("Le password non coincidono");
         return;
-    }
-
-    // Se tutti i controlli sono passati, invia il form
-    const form = document.getElementById("signupForm") as HTMLFormElement;
-    if (form) {
-        form.submit();
     }
 }
 
@@ -45,4 +59,3 @@ function showErrorR(message: string) {
         errorElement.textContent = message;
     }
 }
-
