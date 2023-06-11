@@ -61,6 +61,10 @@ require "isNotAlreadyLog.php";
 				$_SESSION['id_utente']=$email;
 				$_SESSION["nome"]=$nome;
 				$_SESSION["cognome"]=$cognome;
+				$stmt->close();
+				$sql->close();
+				$returnValue->free();
+				$connessione->close();
 				header("Location: home.php");
 			}
 			else {
@@ -71,11 +75,6 @@ require "isNotAlreadyLog.php";
 			$_SESSION["error"] = "Errore inserimento utente!";
 			header("Location: signUp.php");
 			}
-
-		$stmt->close();
-		$sql->close();
-		$returnValue->free();
-		$connessione->close();
 	}
 	else{
 		header("Location: signUp.php"); 

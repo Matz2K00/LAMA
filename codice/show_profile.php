@@ -4,9 +4,8 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="../css/root.css">
 <link rel="stylesheet" type="text/css" href="../css/navbar.css">
-<link rel="stylesheet" type="text/css" href="../css/footer.css">
 <link rel="stylesheet" type="text/css" href="../css/form.css">
-<!-- <link rel="stylesheet" type="text/css" href="../css/profilo.css"> -->
+<link rel="stylesheet" type="text/css" href="../css/profilo.css">
 <title>LAMA</title>
 <meta name="keywords " content="LAMA">
 <meta name="author " content="Belloni Laura, Contegno Matteo">
@@ -40,19 +39,21 @@ $connessione = new mysqli($hostData, $userData, $paswData, $database);
 ?>
 <div class="profilo">
 	<div class="boxFormSx">
-		<a href="modifica-avatar.php"><img  class="profilo" src="../assets/icon/navbar/<?php echo $row['imgAvatar']?>.png" alt="icona grafica stilizzata di una persona con i capelli castano il cappello nero e gli occhiali" height="300"></a>
-		<p>Informazioni principali:</p>
+		<div class="header">
+			<a href="modifica-avatar.php"><img  class="profilo" src="../assets/icon/navbar/<?php echo $row['imgAvatar']?>.png" alt="icona grafica stilizzata di una persona con i capelli castano il cappello nero e gli occhiali" height="300"></a>
+			<p class= "boxTitle">Informazioni principali:</p>
+		</div>
 		<form method="post" action="update_profile.php">
 			<input type="text" name="firstname" value="<?php echo $row['nome']; ?>">
 			<input type="text" name="lastname" value="<?php echo $row['cognome']; ?>">
 			<input type="text" name="email" value="<?php echo $row['email']; ?>">
 			<input type="text" name="pass" value="**********">
-			<div class="link"> 
-				<a href="modifica-password.php" id="aRegister">Modifica password</a>
-			</div>
+		<div class="link"> 
+			<a href="modifica_password.php" id="aRegister"> <U>Modifica password</U></a>
+		</div>
 	</div>
 	<div class="boxFormDx">
-		<p>Ulteriori informazioni:</p>
+		<p class="boxTitle">Ulteriori informazioni:</p>
 			<input type="date" name="dataDiNascita" value="<?php echo $row['dataDiNascita']; ?>"><br>
 			<input type="text" name="citta" value="<?php echo $row['citta']; ?>" placeholder="Città">
 			<input type="text" name="professione" value="<?php echo $row['professione']; ?>" placeholder="Professione">
@@ -62,8 +63,8 @@ $connessione = new mysqli($hostData, $userData, $paswData, $database);
 	</div>
 </div>
 <?php
-$stmt->close();
-$conn->close();
+$sql->close();
+$connessione->close();
 ?>
 
 </body>

@@ -1,12 +1,9 @@
 .top{
     display: flex;
-    background-color: #FFFFFF;
-    height: 80px;
     align-items: center;
     color: var(--blu);
     font-size: 50px;
     font-weight: bold;
-    text-align: left;
 }
 
 .profilo{
@@ -14,12 +11,17 @@
     align-items: center;
 }
 
+.boxTitle{
+    padding-left: 10px;
+    font-size: 30px;
+    color: #274963;
+}
+
 .boxFormSx{
     background: #FFFFFF 0% 0% no-repeat padding-box;
     margin: auto;
-    margin-top: 58px;
-    width: 505px;
-    height: 510px;
+    width: 500px;
+    height: auto;
     text-align: center;
     margin-bottom: 50px;
     border-radius: 20px 20px 20px 20px;
@@ -29,16 +31,16 @@
 .boxFormDx{
     background: #FFFFFF 0% 0% no-repeat padding-box;
     margin: auto;
-    margin-top: 58px;
-    width: 505px;
-    height: 510px;
+    margin-top: auto;
+    width: 500px;
+    height: auto;
     text-align: center;
     margin-bottom: 50px;
     border-radius: 20px 20px 20px 20px;
     padding: 50px;
 }
 
-input[type=text] {
+input[type=text], input[type=date] {
     width: 423px;
     height: 50px;
     margin-bottom: 23px;
@@ -48,4 +50,11 @@ input[type=text] {
     outline: none;
     text-indent: 20px;
     color: #000;
+}
+
+.link{
+    margin: auto;
+    padding-top: 10px;
+    text-align: center;
+    color:#274963;
 }
