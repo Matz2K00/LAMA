@@ -4,7 +4,7 @@
       <meta charset="UTF-8">
       <link rel="stylesheet" type="text/css" href="../css/root.css">
       <link rel="stylesheet" type="text/css" href="../css/navbar.css">
-      <link rel="stylesheet" type="text/css" href="../css/footer.css">
+      <!-- <link rel="stylesheet" type="text/css" href="../css/footer.css"> -->
       <link rel="stylesheet" type="text/css" href="../css/home.css">
       <title>LAMA</title>
       <meta name="keywords " content="LAMA">
