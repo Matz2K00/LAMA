@@ -16,5 +16,13 @@ body{
     font-family: var(--fontCP-regular);
     letter-spacing: 0.022em; /* non lo prende */
     background-color: var(--giallo); /* test for navbar */
+}
 
+a, a:hover, a:visited, a:active {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    all: unset;
 }
