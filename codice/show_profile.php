@@ -13,6 +13,10 @@
 <body>
 <?php 
 	include "sessionStart.php";
+	if(!isset($_SESSION['id_utente'])){
+		header("Location: accesso.php");
+		exit();
+	}
 	include "db.php";
 ?>
 <div class="top">
@@ -23,7 +27,7 @@
 <?php
 $connessione = new mysqli($hostData, $userData, $paswData, $database);
 		if ($connessione->connect_error) {
-			die("Connessione al database fallita: " . $connessione->connect_error);
+			die("Connessione al database fallita ");
 			header("Location: show_profile.php");
 			exit();
 		}

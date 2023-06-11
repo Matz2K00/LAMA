@@ -5,19 +5,22 @@
     font-size: 50px;
     font-weight: bold;
 }
-/* .top p:nth-child(1){
-    transform: translateY(-100px);
-} */
+.top p{
+    transform: translateY(15px);
+    font-size: 40px;;
+}
 
 .profilo{
     display: flex;
     align-items: center;
+    margin-right: 10px;
 }
 
 .boxTitle{
     padding-left: 10px;
-    font-size: 30px;
-    color: #274963;
+    font-size: 25px;
+    color:var(--blu)
+    /* color: #274963; */
 }
 
 .boxFormSx{

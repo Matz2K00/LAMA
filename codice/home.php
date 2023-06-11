@@ -4,8 +4,8 @@
       <meta charset="UTF-8">
       <link rel="stylesheet" type="text/css" href="../css/root.css">
       <link rel="stylesheet" type="text/css" href="../css/navbar.css">
-      <!-- <link rel="stylesheet" type="text/css" href="../css/footer.css"> -->
       <link rel="stylesheet" type="text/css" href="../css/home.css">
+      <link rel="stylesheet" type="text/css" href="../css/footer.css">
       <title>LAMA</title>
       <meta name="keywords " content="LAMA">
       <meta name="author " content="Belloni Laura, Contegno Matteo">
@@ -142,6 +142,6 @@
 
       </div>
 
-      <?php //include 'footer.php';?>
+      <?php include 'footer.php';?>
    </body>
 </html>

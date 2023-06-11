@@ -28,7 +28,9 @@
     border-radius: 37px;
     border: none;
     text-align: center;
-    font: normal normal bold 21px/34px times;
+    /* font: normal normal bold 21px/34px times; */
+    font-size: larger;
+    font-weight: bold;
     letter-spacing: 0.84px;
     color: #FFFFFF;
     cursor: pointer;
