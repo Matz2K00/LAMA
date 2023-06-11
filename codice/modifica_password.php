@@ -20,7 +20,7 @@
     <img  class="profilo" src="../assets/icon/navbar/Profilo.png" alt="avatar con cappello e occhiali">
         <p class="boxTitle">Modifica password</p>
     </div>
-    <form method="post" action="update_password" id="modPassForm">
+    <form method="post" action="update_password.php" id="modPassForm">
     <input type="password" id="oldpass" name="oldpass" placeholder="Vecchia password" required><br>
     <input type="password" id="newpass" name="newpass" placeholder="Nuova password" required><br>
     <input type="password" id="confirm" name="confirm" placeholder="Conferma password" required><br>

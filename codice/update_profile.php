@@ -48,6 +48,10 @@
 				$_SESSION['id_utente']=$email;
 				$_SESSION["nome"]=$nome;
 				$_SESSION["cognome"]=$cognome;
+                $stmt->close();
+                $sql->close();
+                $returnValue->free();
+                $connessione->close();
 				header("Location: home.php");
 			}
 			else {
@@ -58,11 +62,6 @@
 			$_SESSION["error"] = "Errore inserimento utente!";
 			header("Location: show_profile.php");
 			}
-
-		$stmt->close();
-        $sql->close();
-		$returnValue->free();
-		$connessione->close();
 	}
 	else{
 		header("Location: show_profile.php"); 

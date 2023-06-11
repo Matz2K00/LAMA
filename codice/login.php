@@ -44,6 +44,10 @@ require "isNotAlreadyLog.php";
         $_SESSION['id_utente'] = $email;
         $_SESSION["nome"] = $row["firstname"];
         $_SESSION["cognome"] = $row["lastname"];
+        $sql->close();
+        $connessione->close();
+        $result->free();    
+    
         header("Location: home.php");
         exit();
     }else{
