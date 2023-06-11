@@ -3,17 +3,16 @@ require 'sessionStart.php';
 $id_corso = intval($_SESSION['id_corso']);
 $id_utente = $_SESSION['id_utente'];
 
-$valutazioneNuova = intval($_POST['valutazioneNuova'])+1;
 require 'db.php';
 $conn = new mysqli($hostData, $userData, $paswData, $database);
 $sql = "UPDATE Acquisti 
-        SET valutazione = ? 
-        WHERE valutazione IS NULL 
+        SET valutazione = NULL
+        WHERE valutazione IS NOT NULL 
         AND id_corso = ? 
         AND id_utente = ?";
 
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("iis", $valutazioneNuova, $id_corso, $id_utente);
+$stmt->bind_param("is", $id_corso, $id_utente);
 $stmt->execute();
 $stmt->close();
 
@@ -28,8 +27,7 @@ $stmt = $conn->prepare($sql);
 $stmt->bind_param("ii", $id_corso, $id_corso);
 $stmt->execute();
 $stmt->close();
-unset($valutazioneNuova);
 $conn->close();
 ?>
-<h1>Corso valutato!</h1>
+<h1>Valutazione annullata!</h1>
 </div>

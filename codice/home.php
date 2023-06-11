@@ -12,7 +12,17 @@
    </head>
    <body>
 
-      <?php require 'sessionStart.php';?>
+      <?php 
+      require 'sessionStart.php';
+      if(isset($_COOKIE['primaAccedi'])){
+         header("Location: carrello.php");
+         exit();
+      }
+      if(isset($_COOKIE['acquistaOra'])){
+         header("Location: video.php");
+         exit();
+      }
+      ?>
 
       <div class="nav">
          <?php //include 'navbar.php';?>
@@ -36,15 +46,6 @@
 
             <div class="section-2__corsi">
                <?php
-                  if(isset($_COOKIE['primaAccedi'])){
-                     header("Location: carrello.php");
-                     exit();
-                  }
-                  if(isset($_COOKie['acquistaOra'])){ // fai un cookieeeeee!!!
-                     header("Location: video.php");
-                     exit();
-                  }
-                  
                   $corsiPerPagina = 6;
 
                   require 'db.php';

@@ -5,6 +5,11 @@
     <track src="sottotitoli.vtt" kind="subtitles" srclang="it" label="Italino" default>
 </video> -->
 <?php
+if(!isset($_SESSION['id_utente'])){
+  echo "<p> accedi prima al tuo account </p>";
+  exit();
+}
+
 $sql = "SELECT * FROM Acquisti 
         JOIN Corsi ON Acquisti.id_corso = Corsi.id 
         WHERE Acquisti.id_utente = ?
@@ -86,6 +91,27 @@ $(document).ready(function() {
       type: "POST",
       data: { valutazioneNuova: valutazioneNuova },
       success: function(response) {
+        // $("#rispostaValutazione").html(response);
+        // setTimeout(function() {
+          location.reload();
+        // }, 30000);
+      }
+    });
+  });
+});
+</script>
+<!-- <div id="rispostaValutazione"></div> -->
+
+<button class="annullaValutazione">Annulla valutazione</button>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+  $('.annullaValutazione').click(function() {
+    $.ajax({
+      url: "annullaValutazione.php",
+      type: "POST",
+      success: function(response) {
+        // $("#rispostaAnnullaValutazione").html(response);
         console.log(response);
         location.reload();
       }
@@ -93,5 +119,6 @@ $(document).ready(function() {
   });
 });
 </script>
+<!-- <div id="rispostaAnnullaValutazione"></div> -->
 </div>
 

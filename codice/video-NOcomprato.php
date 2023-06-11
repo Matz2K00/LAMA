@@ -76,9 +76,9 @@ $(document).ready(function() {
             type: "POST",
             data: { id_corso: id_corso }, 
             success: function(response) {
-              // setTimeout(function() {
-              //   location.reload();
-              // }, 5000); // Ritardo di 500 millisecondi (mezzo secondo)
+              setTimeout(function() {
+                location.reload();
+              }, 60000); // Ritardo di 1 minuto
             }
         });
     });
@@ -94,7 +94,7 @@ function showCheck() {
 
 <?php
 $_SESSION['id_corso'] = $id_corso;
-if(!isset($_SESSION['id_utente'])){ //&& !isset($_COOKIE['logid'])){
+if(!isset($_SESSION['id_utente']) && !isset($_COOKIE['logid'])){
   $nome = 'acquistaOra';
   $acquisti = true;
   setcookie($nome, $acquisti, time() + 60, '/'); // un minuto

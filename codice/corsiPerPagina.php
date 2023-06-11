@@ -64,7 +64,7 @@ if ($resultWithLimit->num_rows > 0) {
             }
             ?>
           </div>
-        <p><?php echo "Valutata da " . $nUtentiValut . " utenti";?></p>
+          <p><?php echo "Valutata da " . ($nUtentiValut ?? 0) . " utenti";?></p>
         </div>
       </div>
     </button>

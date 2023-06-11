@@ -20,10 +20,8 @@
 
 <?php 
 require 'sessionStart.php';
-
 if(!isset($_SESSION['id_corso'])){
   echo "<p> Non ci sono video selezionati</p>";
-
   exit();
 }
 $id_corso = $_SESSION['id_corso'];
