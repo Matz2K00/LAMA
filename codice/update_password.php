@@ -24,7 +24,7 @@ if(isset($_POST['oldpass']) &&isset($_POST['newpass']) && isset($_POST['confirm'
     }
 
     if(!password_verify($old, $row["password_hash"])){
-        $_SESSION["error"] = "Password errata<br>";
+        $_SESSION["error"] = "<p>Password errata</p>";
         header("Location: modifica_password.php");
         exit();
     }

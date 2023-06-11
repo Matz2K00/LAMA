@@ -58,7 +58,10 @@ input{
 .boxTitle{
     padding-left: 10px;
     font-size: 30px;
-    color: #274963;
+    /* color: #274963; */
+    color: var(--blu);
+    font-weight: bold;
+    transform: translateY(10px);
 }
 
 .profilo{
@@ -82,7 +85,18 @@ input{
 }
 
 .showError{
-    color: red;
-    font: normal normal normal 18px/24px times;
+    /* color: red; */
+    /* font: normal normal normal 18px/24px times; */
     text-align: center;
+    margin-top: 30px;
+}
+
+.out{
+    color: var(--blu);
+    font-size: 20px;
+    transform: translateY(10px);
+    padding-left: 60px;
+    padding-right: 60px;
+    margin-top: 10px;
+    margin-bottom: 30px;
 }

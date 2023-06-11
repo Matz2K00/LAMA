@@ -27,22 +27,22 @@
          <input type="password" name="pass" onchange="passwordOKL()"placeholder="Password" required><br>
          <input type="submit" name="submit" value="Accedi" class="button" rel="noopener noreferrer"> 
       </form>
-   </div>
-   <div class="link"> 
-      <p><b>Non hai un account?  </b><a href="signUp.php" id="aRegister"><U>Registrati</U></a></p>
-   </div>
    <div class="showError" id="showError">
    <?php
                if(isset($_SESSION["error"])){
-                  echo $_SESSION["error"];
+                  echo "<p>".$_SESSION["error"]."</p>";
                   unset($_SESSION["error"]);
                }
                else if(isset($_SESSION["succes"])){
-                  echo $_SESSION["succes"];
+                  echo "<p>".$_SESSION["succes"]."</p>";
                   unset($_SESSION["succes"]);
                   header("location: home.php");
                }
    ?>
+   </div>
+   </div>
+   <div class="link"> 
+      <p><b>Non hai un account?  </b><a href="signUp.php" id="aRegister"><U>Registrati</U></a></p>
    </div>
    <script src="../typescript/validateLogin.js"></script>
 </body>

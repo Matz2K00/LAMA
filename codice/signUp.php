@@ -32,11 +32,6 @@
       <p class="obbligatorio">*Campo obbligatorio</p>
       <input type="submit" name="submit" value="Registrati" class="button" rel="noopener noreferrer">
    </form>
-</div>
-<div class="link">
-   <p><b>Hai già un account?  </b><a href="accesso.php"><U>Accedi</U></a></p>
-</div>
-
 <div class="showError" id="showError">
 <?php
             if(isset($_SESSION["error"])){
@@ -48,6 +43,10 @@
                header("location: home.php");
             }
 ?>
+</div>
+</div>
+<div class="link">
+   <p><b>Hai già un account?  </b><a href="accesso.php"><U>Accedi</U></a></p>
 </div>
 <script src="../typescript/validateRegistration.js"></script> 
 </body>

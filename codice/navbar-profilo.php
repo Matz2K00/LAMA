@@ -3,23 +3,8 @@ if(!isset($_SESSION['id_utente'])){
     echo "sessione non impostata";
     exit();
 }
-$id_utente = $_SESSION['id_utente'];
-
-require "db.php";
-$conn = new mysqli($hostData, $userData, $paswData, $database);
-$sql = "SELECT * FROM Utenti WHERE email = ? ";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("s",$id_utente);
-$stmt->execute();
-$result = $stmt->get_result();
-if ($result) {
-    $row = $result->fetch_assoc();
-}
-$imgAvatar = $row['imgAvatar'];
-$stmt->close();
-$conn->close();
+$imgAvatar = $_SESSION['imgAvatar'];
 ?>
-
 <div class="navbar">
     <div class="navbar__left">
         <a href="home.php">

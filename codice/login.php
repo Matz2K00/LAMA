@@ -35,15 +35,16 @@ require "isNotAlreadyLog.php";
         }
 
         if(!password_verify($password, $row["password_hash"])){
-            $_SESSION["error"] = "Password errata<br>";
+            $_SESSION["error"] = "<p>Password errata</p>";
             header("Location: accesso.php");
             exit();
         }
 
         $_SESSION["success"] = "Accesso effettuato con successo";
-        $_SESSION['id_utente'] = $email;
-        $_SESSION["nome"] = $row["firstname"];
+        $_SESSION['id_utente'] = $email; // va email?
+        $_SESSION["nome"] = $row["firstname"]; //per test?
         $_SESSION["cognome"] = $row["lastname"];
+        $_SESSION["imgAvatar"] = $row["imgAvatar"];
         $sql->close();
         $connessione->close();
         $result->free();    

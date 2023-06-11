@@ -121,4 +121,3 @@ $(document).ready(function() {
 </script>
 <!-- <div id="rispostaAnnullaValutazione"></div> -->
 </div>
-
