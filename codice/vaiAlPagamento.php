@@ -1,4 +1,6 @@
 <?php
+// on click
+
 require 'sessionStart.php';
 $id_utente = $_SESSION['id_utente'];
 require 'db.php';

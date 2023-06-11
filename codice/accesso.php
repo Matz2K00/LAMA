@@ -29,7 +29,7 @@
       </form>
    </div>
    <div class="link"> 
-      <p> Non hai un account? <a href="signUp.php" id="aRegister">Registrati</a></p>
+      <p><b>Non hai un account?  </b><a href="signUp.php" id="aRegister"><U>Registrati</U></a></p>
    </div>
    <?php
                if(isset($_SESSION["error"])){

@@ -15,10 +15,10 @@
    require "isNotAlreadyLog.php";
 ?>
 <div class="top">
-   <a href="home.php"><img class="logo" src="../assets/icon/navbar/logo.png" alt="logo LaMa"></a>
+   <a href="home.php"><img class="logo" src="../assets/icon/navbar/logo.png" alt="logo LaMa" style="margin: 10px 0 -20px 57px;"></a>
 </div>
 
-<div class="boxForm">
+<div class="boxForm" style="margin-top: 0px;">
    <div class="header">
       <img  class="profilo" src="../assets/icon/navbar/Profilo.png" alt="avatar con cappello e occhiali">
       <p class="boxTitle"> Registrazione </p>
@@ -34,8 +34,9 @@
    </form>
 </div>
 <div class="link">
-   <b>Hai già un account?</b><a href="accesso.php">Accedi</a>
+   <p><b>Hai già un account?  </b><a href="accesso.php"><U>Accedi</U></a></p>
 </div>
+
 <div class="showError" id="showError">
 <?php
             if(isset($_SESSION["error"])){
