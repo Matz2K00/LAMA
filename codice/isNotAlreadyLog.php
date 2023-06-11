@@ -1,5 +1,5 @@
 <?php
-	if(isset($_SESSION['id_utente']) || isset($_COOKIE['logid'])){
+	if(isset($_SESSION['id_utente'])){
 		header("Location: home.php");
 	}
 ?>

@@ -157,7 +157,7 @@ $conn->close();
 <div><p>Totale prezzo:</p><p><?php echo $totalePrezzo; ?> €</p></div>
 
 <?php
-if(!isset($_SESSION['id_utente'])){ //&& !isset($_COOKIE['logid'])){
+if(!isset($_SESSION['id_utente'])){
   
   $nome = 'primaAccedi';
   $acquisti = true;

@@ -94,7 +94,7 @@ function showCheck() {
 
 <?php
 $_SESSION['id_corso'] = $id_corso;
-if(!isset($_SESSION['id_utente']) && !isset($_COOKIE['logid'])){
+if(!isset($_SESSION['id_utente'])){
   $nome = 'acquistaOra';
   $acquisti = true;
   setcookie($nome, $acquisti, time() + 60, '/'); // un minuto
