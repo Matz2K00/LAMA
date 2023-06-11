@@ -23,7 +23,7 @@
       <img  class="profilo" src="../assets/icon/navbar/Profilo.png" alt="avatar con cappello e occhiali">
       <p class="boxTitle"> Registrazione </p>
    </div>
-   <form method="post" action="registration.php" onsubmit="validateFormR(event)" id="signupForm">
+   <form method="post" action="registration.php" id="signupForm">
       <input type="text" id="firstname" name="firstname" onchange="firstnameOK(event)" placeholder="Nome*" ><br>
       <input type="text" id="lastname" name="lastname"  onchange="lastnameOK(event)" placeholder="Cognome*"><br>
       <input type="email" id="email" name="email"  onchange="emailOK(event)" placeholder="Email*" required><br>
@@ -49,6 +49,6 @@
             }
 ?>
 </div>
-<script src="../typescript/validateregistration.ts"></script> 
+<script src="../typescript/validateRegistration.js"></script> 
 </body>
 </html>
