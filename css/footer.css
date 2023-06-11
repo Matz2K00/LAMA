@@ -20,10 +20,16 @@
     flex-direction: row;
     font-size: 1.9rem;
     font-weight: bold;
+    transform: translateY(-15px);
 }
 
 .footer__left img{
     padding-right: 20px;
+    max-height: 10vh;
+}
+
+.footer__left p{
+    transform: translate(-15px, 48px);
 }
 
 .footer__right {
@@ -43,6 +49,7 @@
 
 .footer__right p:last-child{
     padding: 10px 0;
+    font-size: 15px;
 }
 
 .footer__right a {
