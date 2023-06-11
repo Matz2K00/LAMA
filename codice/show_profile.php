@@ -49,7 +49,7 @@ $connessione = new mysqli($hostData, $userData, $paswData, $database);
 			<input type="text" name="email" value="<?php echo $row['email']; ?>">
 			<input type="text" name="pass" value="**********">
 		<div class="link"> 
-			<a href="modifica-password.php" id="aRegister"> <U>Modifica password</U></a>
+			<a href="modifica_password.php" id="aRegister"> <U>Modifica password</U></a>
 		</div>
 	</div>
 	<div class="boxFormDx">
