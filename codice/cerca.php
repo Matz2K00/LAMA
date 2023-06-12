@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <link rel="stylesheet" type="text/css" href="../css/root.css">
   <link rel="stylesheet" type="text/css" href="../css/navbar.css">
-  <link rel="stylesheet" type="text/css" href="../css/footer.css">
   <link rel="stylesheet" type="text/css" href="../css/cerca.css">
+  <link rel="stylesheet" type="text/css" href="../css/footer.css">
   <link rel="stylesheet" type="text/css" href="../css/corso.css">
   <title>LAMA</title>
   <meta name="keywords " content="LAMA">
@@ -32,7 +32,7 @@ if (event.keyCode === 13) {
     document.getElementById("searchForm").submit();
     }
 }
-var inputField = document.querySelector('input[name='keyword']');
+var inputField = document.querySelector("input[name='keyword']");
 inputField.addEventListener('keypress', handleKeyPress);
 </script>
 
