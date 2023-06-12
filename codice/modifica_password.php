@@ -27,7 +27,7 @@
     <input type="submit" name="submit" value="Modifica" class="button" rel="noopener noreferrer">
     </form>
 <br>
-<div class="errori">
+<div class="showError" id="showError">
 <?php
     if(isset($_SESSION["error"])){
         echo "<p>".$_SESSION["error"]."</p>";
@@ -41,5 +41,6 @@
 ?>
 </div>
 </div>
+<script src="../typescript/validatePass.js"></script>
 </body>
 </html>
