@@ -1,4 +1,9 @@
 <?php
+require 'sessionStart.php';
+if(!isset($_SESSION['id_corso'])){
+    header("Location: cerca.php");
+    exit();
+}
 if (!isset($_POST['id_corso'])) {
   echo "Valore non ricevuto";
   exit();

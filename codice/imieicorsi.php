@@ -17,6 +17,10 @@
 
 <?php 
 require 'sessionStart.php';
+if(!isset($_SESSION['id_utente'])){
+    header("Location: accesso.php");
+    exit();
+}
 unset($_SESSION['id_corso']);
 $email = $_SESSION['id_utente'];
 

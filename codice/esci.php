@@ -21,7 +21,7 @@
 </div>
 <div class="boxForm">
     <div class="header">
-      <img  class="profilo" src="../assets/icon/navbar/<?php echo $_SESSION["imgAvatar"]?>.png" alt="avatar del profilo">
+      <img  class="profilo" src="../assets/icon/navbar/<?php echo isset($_SESSION['imgAvatar']) ? $_SESSION['imgAvatar'] : 1; ?>.png" alt="avatar del profilo">
       <p class="boxTitle">Esci</p>
     </div>
     <p class="out">Sei sicuro di voler uscire dal profilo?</p>

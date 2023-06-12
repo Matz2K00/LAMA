@@ -8,7 +8,13 @@
   <meta name="author " content="Belloni Laura, Contegno Matteo">
 </head>
 <body>
-
+<?php
+require 'sessionStart.php';
+if(!isset($_SESSION['id_utente'])){
+    header("Location: accesso.php");
+    exit();
+}
+?>
 <h1>In costruzione</h1>
 
 </body>

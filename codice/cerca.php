@@ -12,6 +12,7 @@
 </head>
 <body>
 <?php //include 'navbar.php';?>
+<?php require 'sessionStart.php';?>
 
 <h1>Cerca</h1>
 

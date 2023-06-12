@@ -1,5 +1,14 @@
 <?php
 require 'sessionStart.php';
+if(!isset($_SESSION['id_utente'])){
+    header("Location: accesso.php");
+    exit();
+}
+if(!isset($_SESSION['id_corso'])){
+    header("Location: cerca.php");
+    exit();
+}
+
 $id_corso = intval($_SESSION['id_corso']);
 $id_utente = $_SESSION['id_utente'];
 

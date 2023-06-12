@@ -3,7 +3,6 @@ if(!isset($_SESSION['id_utente'])){
     echo "sessione non impostata";
     exit();
 }
-$imgAvatar = $_SESSION['imgAvatar'];
 ?>
 <div class="navbar">
     <div class="navbar__left">
@@ -28,7 +27,7 @@ $imgAvatar = $_SESSION['imgAvatar'];
             Esci
         </a>
         <a href="show_profile.php" class="profile">
-            <img  class="profilo" src="../assets/icon/navbar/<?php echo $imgAvatar?>.png" alt="icona grafica stilizzata di una persona con i capelli castano il cappello nero e gli occhiali" height="300">
+            <img  class="profilo" src="../assets/icon/navbar/<?php echo isset($_SESSION['imgAvatar']) ? $_SESSION['imgAvatar'] : 1; ?>.png" alt="icona grafica stilizzata di una persona con i capelli castano il cappello nero e gli occhiali" height="300">
         </a>
     </div>
     

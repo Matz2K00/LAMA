@@ -1,7 +1,11 @@
 <?php
 // on click
-
 require 'sessionStart.php';
+if(!isset($_SESSION['id_utente'])){
+    header("Location: accesso.php");
+    exit();
+}
+
 $id_utente = $_SESSION['id_utente'];
 require 'db.php';
 $conn = new mysqli($hostData, $userData, $paswData, $database);

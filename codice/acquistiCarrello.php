@@ -1,4 +1,10 @@
 <?php
+require 'sessionStart.php';
+if(!isset($_SESSION['id_utente'])){
+    header("Location: accesso.php");
+    exit();
+}
+
 echo "<p> gli acquisti sono andati a buon fine: </p>";
 require 'db.php';
 $conn = new mysqli($hostData, $userData, $paswData, $database);
