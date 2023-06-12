@@ -27,8 +27,8 @@ for ($i=0; $i<count($array); $i++) {
 $stmt->close();
 
 echo "<h1>Gli acquisti sono andati a buon fine, hai comprato: </h1>";
-require 'db.php';
-$conn = new mysqli($hostData, $userData, $paswData, $database);
+// require 'db.php';
+// $conn = new mysqli($hostData, $userData, $paswData, $database);
 $sql = "SELECT * FROM Corsi WHERE id = ?";
 $stmt = $conn->prepare($sql);
 

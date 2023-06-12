@@ -1,5 +1,5 @@
 <?php
-require 'sessionStart.php';
+// require 'sessionStart.php';
 $nomeCookie = 'corsi';
 if (isset($_COOKIE[$nomeCookie])) {
   $valoreCookie = $_COOKIE[$nomeCookie];

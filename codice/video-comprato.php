@@ -59,6 +59,8 @@ if ($valutazione !== NULL && $valutazione >= 0 && $valutazione < 6) {
   echo "<p>La tua valutazione</p>";
   for ($i = 0; $i < $gialla; $i++) { echo '<img src="../assets/icon/star/gialla.svg" alt="stella gialla" height="30">'; }
   for ($i = 0; $i < $grigia; $i++) { echo '<img src="../assets/icon/star/grigia.svg" alt="stella grigia" height="30">'; }
+  echo '<button class="annullaValutazione">Annulla valutazione</button>';
+
 }
 if ($valutazione === NULL) {
   echo "<p>Valuta il corso</p>";
@@ -107,7 +109,6 @@ $(document).ready(function() {
 </script>
 <!-- <div id="rispostaValutazione"></div> -->
 
-<button class="annullaValutazione">Annulla valutazione</button>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
 $(document).ready(function() {
