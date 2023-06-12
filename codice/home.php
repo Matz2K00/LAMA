@@ -4,6 +4,7 @@
       <meta charset="UTF-8">
       <link rel="stylesheet" type="text/css" href="../css/root.css">
       <link rel="stylesheet" type="text/css" href="../css/navbar.css">
+      <!-- <link rel="stylesheet" type="text/css" href="../css/corso.css"> -->
       <link rel="stylesheet" type="text/css" href="../css/home.css">
       <link rel="stylesheet" type="text/css" href="../css/footer.css">
       <title>LAMA</title>
