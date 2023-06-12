@@ -44,13 +44,10 @@
 		try {
 			$returnValue = $stmt->execute();
 			if($returnValue == 1){
-				$_SESSION["succes"] = "Registrazione effettuata con successo!";
+				$_SESSION["succes"] = "Modifiche effetuate con successo!";
 				$_SESSION['id_utente']=$email;
 				$_SESSION["nome"]=$nome;
-				$_SESSION["cognome"]=$cognome;
                 $stmt->close();
-                $sql->close();
-                $returnValue->free();
                 $connessione->close();
 				header("Location: home.php");
 			}

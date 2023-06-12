@@ -49,8 +49,7 @@ require "isNotAlreadyLog.php";
 			exit();
 		}
 
-		$hash = password_hash($password, PASSWORD_DEFAULT); //PASSWORD_BCRYPT
-
+		$hash = password_hash($password, PASSWORD_DEFAULT); 
 
 		$stmt = $connessione->prepare("INSERT INTO Utenti (nome, cognome, email, password_hash) VALUES (?, ?, ?, ?)");
 		$stmt->bind_param("ssss", $nome, $cognome, $email, $hash);
@@ -58,14 +57,10 @@ require "isNotAlreadyLog.php";
 			$returnValue = $stmt->execute();
 			if($returnValue == 1){
 				$_SESSION["succes"] = "Registrazione effettuata con successo!";
-				$_SESSION['id_utente']=$email;
-				$_SESSION["nome"]=$nome;
-				$_SESSION["cognome"]=$cognome;
 				$stmt->close();
 				$sql->close();
-				$returnValue->free();
 				$connessione->close();
-				header("Location: home.php");
+				header("Location: accesso.php");
 			}
 			else {
 				$_SESSION["error"] = "L'email o la password sono sbagliati.";

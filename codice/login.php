@@ -41,13 +41,11 @@ require "isNotAlreadyLog.php";
         }
 
         $_SESSION["success"] = "Accesso effettuato con successo";
-        $_SESSION['id_utente'] = $email; // va email?
-        $_SESSION["nome"] = $row["firstname"]; //per test?
-        $_SESSION["cognome"] = $row["lastname"];
+        $_SESSION['id_utente'] = $email;
+        $_SESSION["nome"] = $row["nome"]; 
         $_SESSION["imgAvatar"] = $row["imgAvatar"];
         $sql->close();
         $connessione->close();
-        $result->free();    
     
         header("Location: home.php");
         exit();

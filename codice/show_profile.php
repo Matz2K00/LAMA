@@ -48,10 +48,10 @@ $connessione = new mysqli($hostData, $userData, $paswData, $database);
 			<p class= "boxTitle">Informazioni principali:</p>
 		</div>
 		<form method="post" action="update_profile.php">
-			<input type="text" name="firstname" value="<?php echo $row['nome']; ?>">
-			<input type="text" name="lastname" value="<?php echo $row['cognome']; ?>">
-			<input type="text" name="email" value="<?php echo $row['email']; ?>">
-			<input type="text" name="pass" value="**********">
+			<input type="text" name="firstname" value="<?php echo $row['nome'];?>" onchange="firstnameOK()";>
+			<input type="text" name="lastname" value="<?php echo $row['cognome'];?>" onchange="lastnameOK()";>
+			<input type="text" name="email" value="<?php echo $row['email']; ?>" onchange="emailOK()";>
+			<input type="text" name="pass" value="**********" readonly>
 		<div class="link"> 
 			<a href="modifica_password.php" id="aRegister"> <U>Modifica password</U></a>
 		</div>
@@ -65,7 +65,20 @@ $connessione = new mysqli($hostData, $userData, $paswData, $database);
 			<input type="submit" name="submit" value="Aggiorna" class="button" rel="noopener noreferrer">
 		</form>
 	</div>
+	<div class="showError" id="showError">
+		<?php
+					if(isset($_SESSION["error"])){
+					echo $_SESSION["error"];
+					unset($_SESSION["error"]);
+					}
+					else if(isset($_SESSION["succes"])){
+					unset($_SESSION["succes"]);
+					header("location: home.php");
+					}
+		?>
+	</div>
 </div>
+<script src="../typescript/validateRegistration.js"> </script>
 <?php
 $sql->close();
 $connessione->close();
