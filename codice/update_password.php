@@ -29,6 +29,12 @@ if(isset($_POST['oldpass']) &&isset($_POST['newpass']) && isset($_POST['confirm'
         exit();
     }
 
+    if(strlen($new) < 10){
+        $_SESSION["error"] = "La password deve essere lunga almeno 10 caratteri<br>";
+        header("Location: modifica_password.php");
+        exit();
+    }
+
     if($new != $confirm){
         $_SESSION["error"] = "Le password non coincidono<br>";
         header("Location: modifica_password.php");
