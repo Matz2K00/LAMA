@@ -214,6 +214,7 @@ if(!isset($_SESSION['id_utente'])){
         type: "POST",
         success: function(response) {
           console.log(response);
+          location.reload();
         }
       });
     });

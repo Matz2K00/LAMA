@@ -1,10 +1,10 @@
 <?php
-// on click
+echo "<h1>AAAAAA</h1>";
 require 'sessionStart.php';
-if(!isset($_SESSION['id_utente'])){
-    header("Location: accesso.php");
-    exit();
-}
+// if(!isset($_SESSION['id_utente'])){
+//   header("Location: accesso.php");
+//   exit();
+// }
 
 $id_utente = $_SESSION['id_utente'];
 require 'db.php';
@@ -17,16 +17,14 @@ include 'cookie.php';
 $corsi = $_COOKIE['corsi'];
 $array = unserialize($corsi);
 $values = array_values($array);
-for ($i = 0; $i < count($array); $i++) {
+
+for ($i=0; $i<count($array); $i++) {
   $id_corso = $values[$i];
 
   $stmt->bind_param("si", $id_utente, $id_corso);
   $stmt->execute();
-  $stmt->close();
-
 }
-
-//-------------------------------------------
+$stmt->close();
 
 echo "<h1>Gli acquisti sono andati a buon fine, hai comprato: </h1>";
 require 'db.php';
@@ -50,13 +48,13 @@ for ($i = 0; $i < count($array); $i++) {
       $altImg = $row["altImg"];
       $urlImg = "../assets/img/corsi/".$id_corso.".jpg";
       ?>
-      <button class="vaiAlCorso" data-id-corso="<?php echo $id_corso; ?>">
-        <img src='<?php echo $urlImg; ?>' alt='<?php echo $altImg; ?>' height="300">
-        <h2><?php echo $titolo; ?></h2>
-      </button>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-      <script src="../typescript/click.js"></script>
-      <?php
+       <button class="vaiAlCorso" data-id-corso="<?php echo $id_corso; ?>">
+         <img src='<?php echo $urlImg; ?>' alt='<?php echo $altImg; ?>' height="300">
+         <h2><?php echo $titolo; ?></h2>
+       </button>
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+       <script src="../typescript/click.js"></script>
+         <?php
     }
   }
   $stmt->close();
