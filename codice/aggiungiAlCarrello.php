@@ -1,9 +1,5 @@
 <?php
 require 'sessionStart.php';
-if(!isset($_SESSION['id_utente'])){
-    header("Location: accesso.php");
-    exit();
-}
 if(!isset($_SESSION['id_corso'])){
     header("Location: cerca.php");
     exit();
