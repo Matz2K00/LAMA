@@ -38,10 +38,6 @@
                echo $_SESSION["error"];
                unset($_SESSION["error"]);
             }
-            else if(isset($_SESSION["succes"])){
-               unset($_SESSION["succes"]);
-               header("location: home.php");
-            }
 ?>
 </div>
 </div>
