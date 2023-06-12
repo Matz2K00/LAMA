@@ -1,6 +1,10 @@
 <?php
 include "db.php";
 require "sessionStart.php";
+if(!isset($_SESSION['id_utente'])){
+    header("Location: accesso.php");
+    exit();
+}
 
 if(isset($_POST['oldpass']) &&isset($_POST['newpass']) && isset($_POST['confirm'])){
     $old = trim($_POST["oldpass"]);

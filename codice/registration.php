@@ -1,7 +1,7 @@
 <?php
 include "db.php";
 require "sessionStart.php";
-require "isNotAlreadyLog.php";
+require "isAlreadyLog.php";
 
 	if(isset($_POST['firstname'])&&isset($_POST['lastname'])&&isset($_POST['email'])&&isset($_POST['pass'])&&isset($_POST['confirm'])){
 		$nome = htmlspecialchars(trim($_POST["firstname"]));

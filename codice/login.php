@@ -1,7 +1,7 @@
 <?php
 include "db.php";
 require "sessionStart.php";
-require "isNotAlreadyLog.php";
+require "isAlreadyLog.php";
 
     if(isset($_POST['email'])&&isset($_POST['pass'])){
 		$email = trim($_POST["email"]);

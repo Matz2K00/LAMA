@@ -10,7 +10,12 @@
 </head>
 <body>
 <?php 
-    include "sessionStart.php";
+
+    require 'sessionStart.php';
+    if(!isset($_SESSION['id_utente'])){
+        header("Location: accesso.php");
+        exit();
+    }
 ?>
 <div class="top">
     <a href="home.php"><img class="logo" src="../assets/icon/navbar/logo.png" alt="logo LaMa"></a>

@@ -12,7 +12,7 @@
 <body>
 <?php 
    include "sessionStart.php";
-   require "isNotAlreadyLog.php";
+   require "isAlreadyLog.php";
 ?>
 <div class="top">
    <a href="home.php"><img class="logo" src="../assets/icon/navbar/logo.png" alt="logo LaMa" style="margin: 10px 0 -20px 57px;"></a>
