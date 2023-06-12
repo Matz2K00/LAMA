@@ -10,9 +10,9 @@ if($paginaCorrente >= $totalPagine){
   $paginaSucessiva = $paginaCorrente+1;
 }
 // spostarsi indietro
-echo "<a href='cerca.php?keyword=$keywordEscape&pagina=$paginaPrecedente'><</a>";
+echo "<a href='cerca.php?keyword=$keywordEscape&pagina=$paginaPrecedente'><<</a>";
 // pagina attuale
 echo '<button>Pagina ' . $paginaCorrente . ' di ' . $totalPagine.'</button>';
 // spostarsi avanti
-echo "<a href='cerca.php?keyword=$keywordEscape&pagina=$paginaSucessiva'>></a>";
+echo "<a href='cerca.php?keyword=$keywordEscape&pagina=$paginaSucessiva'>>></a>";
 ?>

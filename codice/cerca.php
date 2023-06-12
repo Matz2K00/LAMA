@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <link rel="stylesheet" type="text/css" href="../css/root.css">
   <link rel="stylesheet" type="text/css" href="../css/navbar.css">
-  <link rel="stylesheet" type="text/css" href="../css/cerca.css">
+  <!-- <link rel="stylesheet" type="text/css" href="../css/cerca.css"> -->
   <link rel="stylesheet" type="text/css" href="../css/footer.css">
   <link rel="stylesheet" type="text/css" href="../css/corso.css">
   <title>LAMA</title>
@@ -18,13 +18,13 @@
 <div class="search">
   <div class="searchbar">
     
-<form action="cerca.php" method="GET">
+<form id="searchForm" action="cerca.php" method="GET">
   <button type="submit">
     <img class="cerca" src="../assets/icon/navbar/Cerca-senzasfondo.png" alt="icona bianca di una lente di ingrandimento stilizzato" height="30">
   </button>
   <input type="text" name="keyword" placeholder="Cerca" <?php if(!empty($_GET['keyword'])) {echo 'value="' . $_GET['keyword'] . '" style="color: #3b6f96;"';} ?> >
 </form>
-
+</div>
 <script>
 function handleKeyPress(event) {
 if (event.keyCode === 13) {
@@ -32,7 +32,8 @@ if (event.keyCode === 13) {
     document.getElementById("searchForm").submit();
     }
 }
-var inputField = document.querySelector("input[name='keyword']");
+var keyword = "keyword";
+var inputField = document.querySelector("input[name='" + keyword + "']");
 inputField.addEventListener('keypress', handleKeyPress);
 </script>
 
