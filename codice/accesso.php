@@ -33,11 +33,6 @@
                   echo "<p>".$_SESSION["error"]."</p>";
                   unset($_SESSION["error"]);
                }
-               else if(isset($_SESSION["succes"])){
-                  echo "<p>".$_SESSION["succes"]."</p>";
-                  unset($_SESSION["succes"]);
-                  header("location: home.php");
-               }
    ?>
    </div>
    </div>

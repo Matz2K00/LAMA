@@ -40,13 +40,12 @@ require "isNotAlreadyLog.php";
             exit();
         }
 
-        $_SESSION["success"] = "Accesso effettuato con successo";
         $_SESSION['id_utente'] = $email;
         $_SESSION["nome"] = $row["nome"]; 
         $_SESSION["imgAvatar"] = $row["imgAvatar"];
         $sql->close();
         $connessione->close();
-    
+        
         header("Location: home.php");
         exit();
     }else{

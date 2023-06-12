@@ -67,16 +67,12 @@ $connessione = new mysqli($hostData, $userData, $paswData, $database);
 	</div>
 	<div class="showError" id="showError">
 		<?php
-					if(isset($_SESSION["error"])){
-					echo $_SESSION["error"];
-					unset($_SESSION["error"]);
-					}
-					else if(isset($_SESSION["succes"])){
-					unset($_SESSION["succes"]);
-					header("location: home.php");
-					}
+			if(isset($_SESSION["error"])){
+			echo $_SESSION["error"];
+			unset($_SESSION["error"]);
+			}
 		?>
-	</div>
+		</div>
 </div>
 <script src="../typescript/validateRegistration.js"> </script>
 <?php
