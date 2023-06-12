@@ -5,6 +5,11 @@
     <track src="sottotitoli.vtt" kind="subtitles" srclang="it" label="Italino" default>
 </video> -->
 <?php
+require 'sessionStart.php';
+if(!isset($_SESSION['id_corso'])){
+  echo "<p> Non ci sono video selezionati</p>";
+  exit();
+}
 if(!isset($_SESSION['id_utente'])){
   echo "<p> accedi prima al tuo account </p>";
   exit();

@@ -25,10 +25,10 @@ if(!isset($_SESSION['id_corso'])){
 }
 if(!isset($_SESSION['id_utente'])){
   $id_corso = $_SESSION['id_corso'];
-  echo "no sessione";
-  // include 'video-NOcomprato.php';
+  // echo "no sessione";
+  include 'video-NOcomprato.php';
 } else {
-  echo "sessione";
+  // echo "sessione";
   $id_corso = $_SESSION['id_corso'];
   $id_utente = $_SESSION['id_utente'];
 
@@ -44,11 +44,11 @@ if(!isset($_SESSION['id_utente'])){
 
   if ($result->num_rows <= 0){
     echo "<p>Non hai comprato questo corso </p>";
-    // include 'video-NOcomprato.php';
+    include 'video-NOcomprato.php';
   }
   else {
     echo "<p>Hai comprato questo corso </p>";
-    // include 'video-comprato.php';
+    include 'video-comprato.php';
   }
   $stmt->close();
   $conn->close();

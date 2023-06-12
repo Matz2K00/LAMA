@@ -1,8 +1,17 @@
 <?php
+require 'sessionStart.php';
+if(!isset($_SESSION['id_corso'])){
+  echo "<p> Non ci sono video selezionati</p>";
+  exit();
+}
+$id_corso = intval($_SESSION['id_corso']);
+require 'db.php';
+$conn = new mysqli($hostData, $userData, $paswData, $database);
 $sql = "SELECT * FROM Corsi
         WHERE id = ? ";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $id_corso);
+
 $stmt->execute();
 $result = $stmt->get_result();
 
@@ -23,8 +32,8 @@ if ($result->num_rows > 0) {
 } else {
   echo "Non esiste il corso selezionato";
 }
-// $stmt->close();
-// $conn->close();
+$stmt->close();
+$conn->close();
 ?>  
     <div>
       <img src='<?php echo $urlImg; ?>' alt='<?php echo $altImg; ?>' height="300">
@@ -92,18 +101,25 @@ function showCheck() {
 
 
 
-<?php
+<?php // attenzione solo se schiacci il pulsante
 $_SESSION['id_corso'] = $id_corso;
 if(!isset($_SESSION['id_utente'])){
-  $nome = 'acquistaOra';
-  $acquisti = true;
-  setcookie($nome, $acquisti, time() + 60, '/'); // un minuto
+  // $nome = 'acquistaOra';
+  // $acquisti = true;
+  // $scadenza = time() + 60;
+  // setcookie($nome, $acquisti, time() + 60, '/'); // un minuto
   echo '<button class="primaAccedi">Acquista ora</button> ';
 ?>
   <script>
   document.addEventListener('DOMContentLoaded', function() {
     var button = document.querySelector('.primaAccedi');
+    var nome = 'acquistaOra';
+    var acquisti = true;
+    var scadenza = new Date();
+    scadenza.setTime(scadenza.getTime() + 30 * 1000);
+    var scadenzaString = scadenza.toUTCString();
     button.addEventListener('click', function() {
+      document.cookie = nome + "=" + acquisti + "; expires=" + scadenzaString + "; path=/";
       window.location.href = 'accesso.php';
     });
   });

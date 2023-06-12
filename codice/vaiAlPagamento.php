@@ -10,17 +10,17 @@ $stmt = $conn->prepare($sql);
 
 // aggiungi corsi comprati nel database -- commentato per test
 include 'cookie.php';
-// $corsi = $_COOKIE['corsi'];
-// $array = unserialize($corsi);
-// $values = array_values($array);
-// for ($i = 0; $i < count($array); $i++) {
-//   $id_corso = $values[$i];
+$corsi = $_COOKIE['corsi'];
+$array = unserialize($corsi);
+$values = array_values($array);
+for ($i = 0; $i < count($array); $i++) {
+  $id_corso = $values[$i];
 
-//   $stmt->bind_param("si", $id_utente, $id_corso);
-//   $stmt->execute();
-//   $stmt->close();
+  $stmt->bind_param("si", $id_utente, $id_corso);
+  $stmt->execute();
+  $stmt->close();
 
-// }
+}
 
 //-------------------------------------------
 
