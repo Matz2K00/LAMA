@@ -19,7 +19,9 @@ if(isset($err)){
 }
 
 require 'sessionStart.php';
-$email_utente_cookie = $_SESSION['id_utente'];
+if(isset($_SESSION['id_utente'])){
+  $email_utente_cookie = $_SESSION['id_utente'];
+}
 ?>
 
 <?php 

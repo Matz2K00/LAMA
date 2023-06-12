@@ -45,30 +45,56 @@ if ($conn->connect_error) {
   exit();
 }
 
+$val = false;
 $corsiPerPagina = 9;
 if (isset($_GET['keyword']) && !empty($_GET['keyword'])) {
   $keywordEscape = htmlspecialchars($_GET['keyword']);
-  $keyword = "%$keywordEscape%";
-  $sql = "SELECT * FROM Corsi 
-          WHERE titolo LIKE ? 
-          OR autore LIKE ? 
-          OR descrizione LIKE ? 
-          OR altImg LIKE ? ";
-  $stmt = $conn->prepare($sql);
-  $stmt->bind_param("ssss", $keyword, $keyword, $keyword, $keyword);
+  
+  if (preg_match('/^valutazione:[1-5]$/', $keywordEscape)) {
+    $parti = explode(':', $keywordEscape);
+    if (count($parti) === 2) {
+      $info = $parti[1]; 
+      if (is_numeric($info) && intval($info) >= 1 && intval($info) <= 5) {
+        $numeroVal = intval($info);
 
-  $sqlCount = "SELECT COUNT(*) AS total FROM Corsi
-          WHERE titolo LIKE ? 
-          OR autore LIKE ? 
-          OR descrizione LIKE ?
-          OR altImg LIKE ? ";
-  $stmtCount = $conn->prepare($sqlCount);
-  $stmtCount->bind_param("ssss", $keyword, $keyword, $keyword, $keyword);
+        include "aggiornaValMedia.php";
+        $sql = "SELECT * FROM Corsi 
+            WHERE valutazioneMedia = ? ";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $numeroVal);
+        
+        $sqlCount = "SELECT COUNT(*) AS total FROM Corsi
+                WHERE valutazioneMedia = ? ";
+        $stmtCount = $conn->prepare($sqlCount);
+        $stmtCount->bind_param("i", $numeroVal);
 
-  $start = "<p>Risultati per: <b>" . $keywordEscape . "</b></p>";
-  $end = "<p>Non ci sono corsi disponibili per: <b>" . $keywordEscape . "</b></p>";
-}
-else{
+        $start = "<p>Risultati per valutazione media di <b>" . $numeroVal . "</b></p>";
+        $end = "<p>Non ci sono corsi con valutazione media di <b>" . $numeroVal . "</b></p>";
+        $val = true;
+      } 
+    }
+  } else {
+    $keyword = "%$keywordEscape%";
+    $sql = "SELECT * FROM Corsi 
+            WHERE titolo LIKE ? 
+            OR autore LIKE ? 
+            OR descrizione LIKE ? 
+            OR altImg LIKE ? ";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ssss", $keyword, $keyword, $keyword, $keyword);
+
+    $sqlCount = "SELECT COUNT(*) AS total FROM Corsi
+            WHERE titolo LIKE ? 
+            OR autore LIKE ? 
+            OR descrizione LIKE ?
+            OR altImg LIKE ? ";
+    $stmtCount = $conn->prepare($sqlCount);
+    $stmtCount->bind_param("ssss", $keyword, $keyword, $keyword, $keyword);
+
+    $start = "<p>Risultati per: <b>" . $keywordEscape . "</b></p>";
+    $end = "<p>Non ci sono corsi disponibili per: <b>" . $keywordEscape . "</b></p>";
+  }
+} else {
   $sql = "SELECT * FROM Corsi";
   $stmt = $conn->prepare($sql);
 
@@ -80,7 +106,7 @@ else{
 }
 require "corsiPerPagina.php";
 include "indicePagina.php";
-// non so su cosa fare unset
+
 unset($keyword);
 // unset($keywordEscape);
 // unset($_GET['keyword']);

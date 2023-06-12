@@ -15,7 +15,11 @@ $inizio = ($paginaCorrente - 1) * $corsiPerPagina;
 $sqlWithLimit = $sql . " LIMIT ?, ?";
 if (isset($_GET['keyword']) && !empty($_GET['keyword'])) {
   $stmtWithLimit = $conn->prepare($sqlWithLimit);
-  $stmtWithLimit->bind_param("ssssii", $keyword, $keyword, $keyword, $keyword, $inizio, $corsiPerPagina);
+  if($val === true){
+    $stmtWithLimit->bind_param("iii", $numeroVal, $inizio, $corsiPerPagina);
+  } else {
+    $stmtWithLimit->bind_param("ssssii", $keyword, $keyword, $keyword, $keyword, $inizio, $corsiPerPagina);
+  }
 }
 else {
   $stmtWithLimit = $conn->prepare($sqlWithLimit);
