@@ -2,6 +2,11 @@
     include "sessionStart.php";
     include "db.php";
 
+    if(!isset($_SESSION['id_utente'])){
+        header("Location: accesso.php");
+        exit();
+    }
+
     if(isset($_POST['firstname'])&&isset($_POST['lastname'])&&isset($_POST['email'])){
         $nome = htmlspecialchars(trim($_POST["firstname"]));
         $cognome = htmlspecialchars(trim($_POST["lastname"]));
