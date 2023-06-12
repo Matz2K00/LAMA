@@ -25,11 +25,12 @@
 
 .footer__left img{
     padding-right: 20px;
-    max-height: 10vh;
+    max-height: 20vh;
+    min-height: 10vh;
 }
 
 .footer__left p{
-    transform: translate(-15px, 48px);
+    transform: translate(-15px, 50px);
 }
 
 .footer__right {

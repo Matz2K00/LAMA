@@ -2,16 +2,17 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <!-- <link rel="stylesheet" type="text/css" href="../css/root.css"> -->
-  <!-- <link rel="stylesheet" type="text/css" href="../css/navbar.css"> -->
-  <!-- <link rel="stylesheet" type="text/css" href="../css/footer.css"> -->
-  <!-- <link rel="stylesheet" type="text/css" href="../css/carrello.css"> -->
+  <link rel="stylesheet" type="text/css" href="../css/root.css">
+  <link rel="stylesheet" type="text/css" href="../css/navbar.css">
+  <link rel="stylesheet" type="text/css" href="../css/footer.css">
+  <link rel="stylesheet" type="text/css" href="../css/corso.css">
+  <link rel="stylesheet" type="text/css" href="../css/carrello.css">
   <title>LAMA</title>
   <meta name="keywords " content="LAMA">
   <meta name="author " content="Belloni Laura, Contegno Matteo">
 </head>
 <body>
-<?php //include 'navbar.php';?>
+<?php include 'navbar.php';?>
 <?php 
 if(isset($err)){
   echo "<p> ".$err." </p>";
@@ -57,9 +58,10 @@ if ($resultNome->num_rows > 0) {
 }
 ?>
 
-<!-- <img class="carrello" src="../assets/icon/navbar/Carrello-senzasfondo.png" alt="icona bianca del carrello stilizzato"> -->
-<p>Il tuo carrello <strong><?php echo $nomeutente;?></strong><p>
-
+<div class="title">
+  <img class="cart" src="../assets/icon/navbar/Carrello-senzasfondo.png" alt="icona bianca del carrello stilizzato">
+  <h1>  Il tuo carrello <?php echo $_SESSION['nome'];?><h1>
+</div>
 <?php include 'cookie.php';?>
 <?php
 $corsi = $_COOKIE['corsi'];
@@ -102,30 +104,39 @@ for ($i = 0; $i < count($array); $i++) {
       ?>
       <div>
       <button class="vaiAlCorso" data-id-corso="<?php echo $id_corso_cookie; ?>">
-        <img src='<?php echo $urlImg; ?>' alt='<?php echo $altImg; ?>' height="300">
-        <h2><?php echo $titolo; ?></h2>
-        <p><?php echo $autore; ?></p>
-        <p>
-        <?php //stelline
-        $gialla=0;
-        $grigia=0;
-        if ($valutazioneMedia !== NULL && $valutazioneMedia >= 0 && $valutazioneMedia < 6) {
-          $gialla = $valutazioneMedia;
-          $grigia = 5-$valutazioneMedia;
-          // togliere height="30"
-          for ($j = 0; $j < $gialla; $j++) { echo '<img src="../assets/icon/star/gialla.svg" alt="stella gialla" height="30">'; }
-          for ($j = 0; $j < $grigia; $j++) { echo '<img src="../assets/icon/star/grigia.svg" alt="stella grigia" height="30">'; }
-        }
-        if ($valutazioneMedia === NULL) {
-          for ($j = 0; $j < 5; $j++) { echo '<img src="../assets/icon/star/grigia.svg" alt="stella grigia" height="30">'; }
-        }
-        ?></p>
-        <p>Prezzo: <?php echo $prezzo; ?> €</p>
+        <img class="img-corso" src='<?php echo $urlImg; ?>' alt='<?php echo $altImg; ?>' height="300">
+        <div class="info">
+          <div class="texts"> 
+            <h2><?php echo $titolo; ?></h2>
+            <p><?php echo $autore; ?></p>
+          </div>
+          <div class="rating"> 
+            <div class="stars"> 
+              <?php //stelline
+              $gialla=0;
+              $grigia=0;
+              if ($valutazioneMedia !== NULL && $valutazioneMedia >= 0 && $valutazioneMedia < 6) {
+                $gialla = $valutazioneMedia;
+                $grigia = 5-$valutazioneMedia;
+                // togliere height="30"
+                for ($j = 0; $j < $gialla; $j++) { echo '<img src="../assets/icon/star/gialla.svg" alt="stella gialla" height="30">'; }
+                for ($j = 0; $j < $grigia; $j++) { echo '<img src="../assets/icon/star/grigia.svg" alt="stella grigia" height="30">'; }
+              }
+              if ($valutazioneMedia === NULL) {
+                for ($j = 0; $j < 5; $j++) { echo '<img src="../assets/icon/star/grigia.svg" alt="stella grigia" height="30">'; }
+              }
+              ?>
+            </div>
+            <div class="last">
+              <p class="price">Prezzo: <?php echo $prezzo; ?> €</p>
+              <img  class="rimuoviDalCarrello" data-id-corso="<?php echo $id_corso_cookie; ?>"src="../assets/icon/cestino.svg" alt="icona di un cestino stilizzato" height="30">
+            </div>
+        </div>
+        
       </button>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
       <script src="../typescript/click.js"></script>
       
-      <img  class="rimuoviDalCarrello" data-id-corso="<?php echo $id_corso_cookie; ?>"src="../assets/icon/cestino.svg" alt="icona di un cestino stilizzato" height="30">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
       <script src="../typescript/click.js"></script>
       <script>
@@ -222,7 +233,7 @@ if(!isset($_SESSION['id_utente'])){
 </script>
 <?php
 ?>
-<?php //include 'footer.php';?>
+<?php include 'footer.php';?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="../typescript/click.js"></script>
 </body>

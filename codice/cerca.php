@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <link rel="stylesheet" type="text/css" href="../css/root.css">
   <link rel="stylesheet" type="text/css" href="../css/navbar.css">
-  <!-- <link rel="stylesheet" type="text/css" href="../css/cerca.css"> -->
+  <link rel="stylesheet" type="text/css" href="../css/cerca.css">
   <link rel="stylesheet" type="text/css" href="../css/footer.css">
   <link rel="stylesheet" type="text/css" href="../css/corso.css">
   <title>LAMA</title>
@@ -105,7 +105,8 @@ if (isset($_GET['keyword']) && !empty($_GET['keyword'])) {
 
   $start = "<p class='result'>Tutti i <b>nostri</b> corsi</p>";
   $end = "<p class='result'>Corsi esauriti</p>";
-}require "corsiPerPagina.php";
+}
+require "corsiPerPagina.php";
           
 unset($keyword);
 // unset($keywordEscape);

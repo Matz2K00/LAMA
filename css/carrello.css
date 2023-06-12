@@ -1,0 +1,38 @@
+.cart {
+    height: 30vh;
+}
+
+h1, p {
+    color: #fff;
+}
+
+h1 {
+    font-size: 60px;
+    transform: translateY(35px);
+}
+
+.title {
+    padding: 10% 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.price {
+    color: var(--giallo);
+}
+
+.last {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: center;
+}
+
+.rimuoviDalCarrello {
+}
