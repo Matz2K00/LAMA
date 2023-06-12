@@ -1,10 +1,9 @@
 <?php
-echo "<h1>AAAAAA</h1>";
 require 'sessionStart.php';
-// if(!isset($_SESSION['id_utente'])){
-//   header("Location: accesso.php");
-//   exit();
-// }
+if(!isset($_SESSION['id_utente'])){
+  header("Location: accesso.php");
+  exit();
+}
 
 $id_utente = $_SESSION['id_utente'];
 require 'db.php';
@@ -57,8 +56,8 @@ for ($i = 0; $i < count($array); $i++) {
          <?php
     }
   }
-  $stmt->close();
 }
+$stmt->close();
 $conn->close();
 
 // elimino cookie
