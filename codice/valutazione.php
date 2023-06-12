@@ -4,6 +4,10 @@ $id_corso = intval($_SESSION['id_corso']);
 $id_utente = $_SESSION['id_utente'];
 
 $valutazioneNuova = intval($_POST['valutazioneNuova'])+1;
+if($valutazioneNuova < 1 || $valutazioneNuova > 5){
+    echo "<p>Errore in valutazione</p>";
+    exit();
+}
 require 'db.php';
 $conn = new mysqli($hostData, $userData, $paswData, $database);
 $sql = "UPDATE Acquisti 
