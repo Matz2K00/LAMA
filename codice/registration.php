@@ -28,6 +28,7 @@ require "isNotAlreadyLog.php";
 			header("Location: signUp.php");
 			exit();
 		}
+		
 		//controllare che ci sia già un utente con la stessa email
 		$connessione = new mysqli($hostData, $userData, $paswData, $database);
 		if ($connessione->connect_error) {
