@@ -47,14 +47,12 @@
                 echo "<a class='altriCorsi' href='cerca.php'>Vedi altri corsi</a></div>";
                 exit();
             }
-
-			if (isset($_COOKIE['corsi'])) {
-				$corsi = $_COOKIE['corsi'];
-				$array = unserialize($corsi);
-				$stmt = $connessione->prepare("SELECT * FROM Corsi WHERE id = ? ");
-				$array = unserialize($corsi);
-				$values = array_values($array);
-			}
+			
+			$corsi = $_COOKIE['corsi'];
+			$array = unserialize($corsi);
+			$stmt = $connessione->prepare("SELECT * FROM Corsi WHERE id = ? ");
+			$array = unserialize($corsi);
+			$values = array_values($array);
 			
 			$totalePrezzo=0;
 			for ($i = 0; $i < count($array); $i++) {

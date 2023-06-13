@@ -44,12 +44,11 @@
 		<div class="video-info__right">
 			<div class="valutazione">
 				<p>E' stato valutato</p>
-			<div> 
+			
 			<?php
 				include 'stelline.php';
 			?>
-		</div>
-	</div>
+			</div> 
 
 	<div class="prezzo">
 		<p><?php echo $prezzo." €"; ?></p>
@@ -127,6 +126,8 @@
 			<?php
 		}
 		?>
+		</div>
+		</div>
 	</div>
 	<div class="other" >
 		<a href="cerca.php">Altri corsi</a>
