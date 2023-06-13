@@ -164,7 +164,6 @@
 					url: "vaiAlPagamento.php", 
 					type: "POST",
 					success: function(response) {
-						// $("#rispostaVaiAlPagamento").html(response);
 						window.location.href = "video.php";
 					}
 				});
@@ -172,7 +171,6 @@
 		});
     </script>
 
-    <div id="rispostaVaiAlPagamento"></div>
     <?php
 	}
 	?>

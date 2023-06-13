@@ -106,6 +106,7 @@
 					});
 				});
 			</script>
+
 		<?php
 		} else {
 			echo '<button class="acquistaOra acquistaBtn">Acquista ora</button> ';
@@ -117,7 +118,7 @@
 						url: "acquistaOra.php", 
 						type: "POST",
 						success: function(response) {
-							$("#rispostaAcquistaOra").html(response);
+							location.reload();
 						}
 					});
 				});
