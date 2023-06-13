@@ -57,9 +57,11 @@
                     if (is_numeric($info) && intval($info) >= 1 && intval($info) <= 5) {
                         $numeroVal = intval($info);
                         include "aggiornaValMedia.php";
-                        $stmt = $connessione->prepare("SELECT * FROM Corsi WHERE valutazioneMedia = ? ");
+                        $sql = "SELECT * FROM Corsi WHERE valutazioneMedia = ? ";
+                        $stmt = $connessione->prepare($sql);
                         $stmt->bind_param("i", $numeroVal);
-                        $stmtCount = $connessione->prepare("SELECT COUNT(*) AS total FROM Corsi WHERE valutazioneMedia = ? ");
+                        $sqlCount = "SELECT COUNT(*) AS total FROM Corsi WHERE valutazioneMedia = ? ";
+                        $stmtCount = $connessione->prepare($sqlCount);
                         $stmtCount->bind_param("i", $numeroVal);
                         $start = "<p class='result'>Risultati per valutazione media di <b>" . $numeroVal . "</b></p>";
                         $end = "<p class='result'>Non ci sono corsi con valutazione media di <b>" . $numeroVal . "</b></p>";
@@ -68,18 +70,21 @@
                 }
             } else {
                 $keyword = "%$keywordEscape%";
-                $stmt = $connessione->prepare("SELECT * FROM Corsi WHERE titolo LIKE ? OR autore LIKE ? OR descrizione LIKE ? OR altImg LIKE ? ");
+                $sql = "SELECT * FROM Corsi WHERE titolo LIKE ? OR autore LIKE ? OR descrizione LIKE ? OR altImg LIKE ? ";
+                $stmt = $connessione->prepare($sql);
                 $stmt->bind_param("ssss", $keyword, $keyword, $keyword, $keyword);
-
-                $stmtCount = $connessione->prepare("SELECT COUNT(*) AS total FROM Corsi WHERE titolo LIKE ? OR autore LIKE ? OR descrizione LIKE ? OR altImg LIKE ? ");
+                $sqlCount = "SELECT COUNT(*) AS total FROM Corsi WHERE titolo LIKE ? OR autore LIKE ? OR descrizione LIKE ? OR altImg LIKE ? ";
+                $stmtCount = $connessione->prepare($sqlCount);
                 $stmtCount->bind_param("ssss", $keyword, $keyword, $keyword, $keyword);
 
                 $start = "<p class='result'>Risultati per: <b>" . $keywordEscape . "</b></p>";
                 $end = "<p class='result'>Non ci sono corsi disponibili per: <b>" . $keywordEscape . "</b></p>";
             }
         } else {
-            $stmt = $connessione->prepare("SELECT * FROM Corsi");
-            $stmtCount = $connessione->prepare("SELECT COUNT(*) AS total FROM Corsi");
+            $sql = "SELECT * FROM Corsi";
+            $stmt = $connessione->prepare($sql);
+            $sqlCount = "SELECT COUNT(*) AS total FROM Corsi";
+            $stmtCount = $connessione->prepare($sqlCount);
             
             $start = "<p class='result'>Tutti i <b>nostri</b> corsi</p>";
             $end = "<p class='result'>Corsi esauriti</p>";

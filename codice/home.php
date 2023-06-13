@@ -45,8 +45,10 @@
 				<?php
 					$corsiPerPagina = 6;
 					include 'db.php';
-					$stmt = $connessione->prepare("SELECT * FROM Corsi");
-					$stmtCount = $connessione->prepare("SELECT COUNT(*) AS total FROM Corsi");
+					$sql = "SELECT * FROM Corsi";
+					$stmt = $connessione->prepare($sql);
+					$sqlCount = "SELECT COUNT(*) AS total FROM Corsi";
+					$stmtCount = $connessione->prepare($sqlCount);
 					$start = "";
 					$end = "";
 					include "corsiPerPagina.php";
