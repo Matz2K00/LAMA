@@ -12,7 +12,7 @@
 <meta name="author " content="Belloni Laura, Contegno Matteo">
 </head>
 <body>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <?php
 	if(isset($err)){
 		echo "<p> ".$err." </p>";
@@ -195,7 +195,6 @@
 
 <?php include 'footer.php';?>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="../typescript/vaiAlCorso.js"></script>
 </body>
 </html>

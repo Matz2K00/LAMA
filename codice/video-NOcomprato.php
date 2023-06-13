@@ -1,3 +1,4 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <?php
 	// require 'sessionStart.php';
 	if(!isset($_SESSION['id_corso'])){
@@ -129,6 +130,5 @@
 	<div class="other" >
 		<a href="cerca.php">Altri corsi</a>
 	</div>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-			<script src="../typescript/vaiAlCorso.js"></script>
+<script src="../typescript/vaiAlCorso.js"></script>
 

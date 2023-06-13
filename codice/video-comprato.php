@@ -1,3 +1,4 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <?php
 	// require 'sessionStart.php';
 	if(!isset($_SESSION['id_corso'])){
@@ -84,7 +85,6 @@
 	});
 	</script>
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script>
 	$(document).ready(function() {
 		$('.star').click(function() {
@@ -101,7 +101,6 @@
 	});
 	</script>
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script>
 	$(document).ready(function() {
 		$('.annullaValutazione').click(function() {
