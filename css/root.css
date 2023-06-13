@@ -153,3 +153,7 @@ video[poster]{
     font-size: 12px;
     margin-top: 10px;;
 }
+
+h2{
+    color: var(--blu);
+}

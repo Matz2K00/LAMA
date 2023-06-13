@@ -146,13 +146,14 @@ $conn->close();
           });
         });
         </script>
-        <div id="rispostaAcquistaOra"></div>
         <?php
       }
       ?>
     </div>
   </div>
 </div>
+
+<div id="rispostaAcquistaOra"></div>
 
 <div class="other" >
   <a href="cerca.php">Altri corsi</a>
