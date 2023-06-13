@@ -2,7 +2,6 @@
 // require 'sessionStart.php';
 include 'db.php';
 
-
 // query per calcolare numero dei corsi
 $stmtCount = $connessione->prepare("SELECT COUNT(*) AS numero_righe FROM Corsi");
 $stmtCount->execute();
@@ -19,7 +18,6 @@ $stmtVal = $connessione->prepare("UPDATE Corsi
     )AS INT )WHERE id = ? ");
 
 // numero di valutazioni per corso
-$sqlNU = 
 $stmtNU = $connessione->prepare("UPDATE Corsi
     SET nUtentiValut = (
     SELECT COUNT(DISTINCT id_utente)
