@@ -36,7 +36,7 @@
 <div class="carrello-page">
 	<div class="title">
 		<img class="cart" src="../assets/icon/navbar/Carrello-senzasfondo.png" alt="icona bianca del carrello stilizzato">
-		<h1>  Il tuo carrello <?php echo ($_SESSION['nome']) ? $_SESSION['nome'] : ""; ?>
+		<h1>  Il tuo carrello <?php if(isset($_SESSION['nome'])){$_SESSION['nome'];} else {"";} ?>
 <h1>
 	</div>
 	<div class="carrello-wrapper">
