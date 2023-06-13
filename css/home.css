@@ -59,8 +59,12 @@
 .section-2 p {
     font-size: 4.662rem;
     font-weight: bold;
-    color: var(--giallo);
+    color: var(--blu);
 }
+
+/* .section-2 p:nth-child(1) {
+    font-size: 15px;
+} */
 
 .section-2 a {
     cursor: pointer;

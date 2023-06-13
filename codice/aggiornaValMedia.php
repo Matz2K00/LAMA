@@ -1,5 +1,5 @@
 <?php
-require 'sessionStart.php';
+// require 'sessionStart.php';
 include 'db.php';
 
 

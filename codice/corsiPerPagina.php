@@ -1,5 +1,5 @@
 <?php
-	require "sessionStart.php";
+	// require "sessionStart.php";
 	$stmt->execute();
 	$result = $stmt->get_result();
 
