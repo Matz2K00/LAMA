@@ -40,5 +40,4 @@ for($i=1; $i<=$nCorsi; $i++){
 $stmtCount->close();
 $stmtVal->close();
 $stmtNU->close();
-$connessione->close();
 ?>

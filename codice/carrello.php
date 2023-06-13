@@ -164,7 +164,7 @@
 					url: "vaiAlPagamento.php", 
 					type: "POST",
 					success: function(response) {
-						window.location.href = "video.php";
+						window.location.href = "imieicorsi.php";
 					}
 				});
 			});

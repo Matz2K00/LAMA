@@ -6,7 +6,6 @@
 <link rel="stylesheet" type="text/css" href="../css/navbar.css">
 <link rel="stylesheet" type="text/css" href="../css/footer.css">
 <link rel="stylesheet" type="text/css" href="../css/corso.css">
-<!-- <link rel="stylesheet" type="text/css" href=".../css/video.css"> -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 <title>LAMA</title>
 <meta name="keywords " content="LAMA">
