@@ -1,4 +1,5 @@
 <?php
+    unset($err);
     $nomeCookie = 'corsi';
     if (isset($_COOKIE[$nomeCookie])) {
         $valoreCookie = $_COOKIE[$nomeCookie];

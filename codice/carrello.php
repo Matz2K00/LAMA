@@ -42,14 +42,17 @@
 	<div class="carrello-wrapper">
 		<?php 
 			include 'cookie.php';
-			$corsi = $_COOKIE['corsi'];
-			$array = unserialize($corsi);
-			
-			if (empty($array) || in_array(null, $array, true)) {
+			if($err) {
+				echo "<p>".$err."</p>";
+				exit();
+			}
+			if (empty(unserialize($_COOKIE['corsi'])) || in_array(null, unserialize($_COOKIE['corsi']), true)) {
                 echo "<div class='nessunCorso'><p> Ancora nessun corso nel carrello </p>";
                 echo "<a class='altriCorsi' href='cerca.php'>Vedi altri corsi</a></div>";
                 exit();
             }
+			$corsi = $_COOKIE['corsi'];
+			$array = unserialize($corsi);
 			$stmt = $connessione->prepare("SELECT * FROM Corsi WHERE id = ? ");
 			$array = unserialize($corsi);
 			$values = array_values($array);
