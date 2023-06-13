@@ -59,7 +59,7 @@
 			$totalePrezzo=0;
 			for ($i = 0; $i < count($array); $i++) {
 				$id_corso_cookie = $values[$i];
-				
+				echo $id_corso_cookie;
 				if (!is_int($id_corso_cookie)) {
 					echo "<p>Errore: il corso aggiunto al carrello non esiste! </p>";
 					header("Location: carrello.php");
