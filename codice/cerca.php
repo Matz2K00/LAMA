@@ -12,8 +12,10 @@
 <meta name="author " content="Belloni Laura, Contegno Matteo">
 </head>
 <body>
-<?php include 'navbar.php';?>
-<?php require 'sessionStart.php';?>
+<?php 
+require 'sessionStart.php';
+include 'navbar.php';
+?>
 
 <div class="search">
     <div class="searchbar">
@@ -35,7 +37,6 @@
     var inputField = document.querySelector("input[name='" + keyword + "']");
     inputField.addEventListener('keypress', handleKeyPress);
     </script>
-    <div class="corsi-wrapper">
         <?php
         include 'db.php';
         
@@ -89,7 +90,10 @@
             $start = "<p class='result'>Tutti i <b>nostri</b> corsi</p>";
             $end = "<p class='result'>Corsi esauriti</p>";
         }
-        
+        echo $start;
+        ?>
+        <div class="corsi-wrapper">
+        <?php
         include "corsiPerPagina.php";
         unset($keyword);
 
@@ -98,10 +102,10 @@
         $stmtWithLimit->close();
         $connessione->close();
         ?>
-    </div>
-    <div class="pages">
-        <?php include "indicePagina.php";?>
-    </div>
+        </div>
+        <div class="pages">
+            <?php include "indicePagina.php";?>
+        </div>
 </div>
 
 <?php include 'footer.php';?>

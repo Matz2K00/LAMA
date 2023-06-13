@@ -22,7 +22,7 @@
     }
     $stmt->close();
 
-    echo "<h1>Gli acquisti sono andati a buon fine, hai comprato: </h1>";
+    echo "<h2 class='pagamento'>Gli acquisti sono andati a buon fine, hai comprato: </h2>";
 
     $stmt = $connessione->prepare("SELECT * FROM Corsi WHERE id = ?");
 
@@ -43,11 +43,9 @@
                 $urlImg = "../assets/img/corsi/".$id_corso.".jpg";
                 ?>
                 <button class="vaiAlCorso" data-id-corso="<?php echo $id_corso; ?>">
-                    <img src='<?php echo $urlImg; ?>' alt='<?php echo $altImg; ?>' height="300">
-                    <h2><?php echo $titolo; ?></h2>
+                    <img class="img-corso" src='<?php echo $urlImg; ?>' alt='<?php echo $altImg; ?>' height="300">
+                    <h3><?php echo $titolo; ?></h3>
                 </button>
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-                <script src="../typescript/click.js"></script>
                 <?php
             }
         }
@@ -58,5 +56,6 @@
     $nomeCookie = 'corsi';
     $scadenza = time() - 3600;
     setcookie($nomeCookie, null, $scadenza, "/");
-
 ?>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="../typescript/vaiAlCorso.js"></script>

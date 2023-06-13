@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="../css/root.css">
 <link rel="stylesheet" type="text/css" href="../css/navbar.css">
-<!-- <link rel="stylesheet" type="text/css" href="../css/corso.css"> -->
+<link rel="stylesheet" type="text/css" href="../css/corso.css">
 <link rel="stylesheet" type="text/css" href="../css/home.css">
 <link rel="stylesheet" type="text/css" href="../css/footer.css">
 <title>LAMA</title>
@@ -32,7 +32,6 @@
 			<div class="section-1__left">
 				<p><?php echo isset($_SESSION["nomeutente"]) ? "Benvenutx ".$_SESSION["nomeutente"] : "Impara con <br>LAMA"; ?></p>
 				<p>I tuoi corsi ovunque!</p>
-				<!-- <img src="../assets/img/wave.png">  -->
 			</div>
 			<div class="section-1__right">
 				<p>Trova quello<br>fatto apposta per <span>TE</span></p>

@@ -12,46 +12,25 @@
 <meta name="author " content="Belloni Laura, Contegno Matteo">
 </head>
 <body>
-<?php //include 'navbar.php';?>
+
 <?php
 	if(isset($err)){
 		echo "<p> ".$err." </p>";
 		unset($err);
 	}
 
-require 'sessionStart.php';
-if(isset($_SESSION['id_utente'])){
-	$email_utente_cookie = $_SESSION['id_utente'];
-}
-
-include 'db.php';
-
-if ($connessione->connect_error) {
-	die("connessioneessione al database fallita.");
-	header("Location: carrello.php");
-	exit();
-}
-
-
-$stmtNome = $connessione->prepare("SELECT nome FROM Utenti WHERE email = ? ");
-$stmtNome->bind_param("s", $email_utente_cookie);
-$stmtNome->execute();
-$resultNome = $stmtNome->get_result();
-
-if ($resultNome->num_rows > 0) {
-	while ($r = $resultNome->fetch_assoc()) {
-		$nome = $r['nome']; 
-		if($r['nome'] !== NULL){
-			$nomeutente = $r['nome'];
-		}
-		//else{
-    //   	if ($email_utente_cookie !== NULL){
-    //     	$parts = explode("@", $email_utente_cookie);
-    //    	$nomeutente = $parts[0];
-    //		}
-    //	}
+	require 'sessionStart.php';
+	if(isset($_SESSION['id_utente'])){
+		$email_utente_cookie = $_SESSION['id_utente'];
 	}
-}
+	include 'navbar.php';
+	include 'db.php';
+
+	if ($connessione->connect_error) {
+		die("connessioneessione al database fallita.");
+		header("Location: carrello.php");
+		exit();
+	}
 ?>
 
 <div class="carrello-page">
@@ -67,10 +46,10 @@ if ($resultNome->num_rows > 0) {
 			$array = unserialize($corsi);
 			
 			if (empty($array) || in_array(null, $array, true)) {
-				echo "<p> Ancora nessun corso nel carrello </p>";
-				echo "<a href='cerca.php'><p>Vedi altri corsi</p></a>";
-				exit();
-			}
+                echo "<div class='nessunCorso'><p> Ancora nessun corso nel carrello </p>";
+                echo "<a class='altriCorsi' href='cerca.php'>Vedi altri corsi</a></div>";
+                exit();
+            }
 			$stmt = $connessione->prepare("SELECT * FROM Corsi WHERE id = ? ");
 			$array = unserialize($corsi);
 			$values = array_values($array);
@@ -115,7 +94,6 @@ if ($resultNome->num_rows > 0) {
 										if ($valutazioneMedia !== NULL && $valutazioneMedia >= 0 && $valutazioneMedia < 6) {
 											$gialla = $valutazioneMedia;
 											$grigia = 5-$valutazioneMedia;
-											// togliere height="30"
 											for ($j = 0; $j < $gialla; $j++) { echo '<img src="../assets/icon/star/gialla.svg" alt="stella gialla" height="30">'; }
 											for ($j = 0; $j < $grigia; $j++) { echo '<img src="../assets/icon/star/grigia.svg" alt="stella grigia" height="30">'; }
 										}
@@ -135,12 +113,6 @@ if ($resultNome->num_rows > 0) {
 								<img  class="rimuoviDalCarrello" data-id-corso="<?php echo $id_corso_cookie; ?>"src="../assets/icon/cestino.svg" alt="icona di un cestino stilizzato" height="30">
 							</div>
 						</div>
-
-						<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-						<script src="../typescript/click.js"></script>
-						
-						<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-						<script src="../typescript/click.js"></script>
 						<script>
 							$(document).ready(function() {
 								$(".rimuoviDalCarrello").click(function(e) {
@@ -194,9 +166,6 @@ if ($resultNome->num_rows > 0) {
 	} else {
 		echo '<button class="vaiAlPagamento">Vai al pagamento</button> ';
     ?>
-    
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="../typescript/click.js"></script>
     <script>
 		$(document).ready(function() {
 			$(".vaiAlPagamento").click(function() {
@@ -219,8 +188,6 @@ if ($resultNome->num_rows > 0) {
 	<div class="bottomBtns">
 		<a href="cerca.php"><p>Vedi altri corsi</p></a>
 		<button class="svuotaIlCarrello">Svuota il carrello</button> 
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-		<script src="../typescript/click.js"></script>
 		<script>
 		$(document).ready(function() {
 			$(".svuotaIlCarrello").click(function() {
@@ -241,6 +208,6 @@ if ($resultNome->num_rows > 0) {
 <?php include 'footer.php';?>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="../typescript/click.js"></script>
+<script src="../typescript/vaiAlCorso.js"></script>
 </body>
 </html>

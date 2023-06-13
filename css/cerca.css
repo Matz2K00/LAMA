@@ -28,7 +28,7 @@ form button {
     flex-wrap: wrap;
     justify-content: space-between;
     min-height: 100vh;
-    transform: translateY(-10%);
+    transform: translateY(-15%);
 }
 
 input {
@@ -80,4 +80,12 @@ button img {
     font-size: 1.4rem;
     color: var(--blu);
     padding: 0 25px;
+}
+
+.start {
+    text-align: center;
+    color: var(--blu);
+    font-size: 20px;
+    padding-top: 20px;
+    transform: translateY(-20vh);
 }

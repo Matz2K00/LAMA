@@ -69,12 +69,11 @@
 		<?php 
 		include 'cookie.php';
 		if (in_array($id, $corsi)) {
-			echo '<button class="carrelloBtn">Aggiunto al carrello</button>';
+			echo '<button class="carrelloBtn">Aggiunto</button>';
 		} else {
 			echo '<button class="carrelloBtn" id="aggiungiAlCarrello" onclick="showCheck()">Aggiungi al carrello</button>';
 		}
 		?>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 		<script>
 			$(document).ready(function() {
 				$("#aggiungiAlCarrello").click(function() {
@@ -120,8 +119,6 @@
 		} else {
 			echo '<button class="acquistaOra acquistaBtn">Acquista ora</button> ';
 			?>
-			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-			<script src="../typescript/click.js"></script>
 			<script>
 				$(document).ready(function() {
 					$(".acquistaOra").click(function() {
@@ -139,9 +136,9 @@
 		}
 		?>
 	</div>
-
-
 	<div class="other" >
 		<a href="cerca.php">Altri corsi</a>
 	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+			<script src="../typescript/vaiAlCorso.js"></script>
 
