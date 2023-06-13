@@ -20,8 +20,6 @@ for($num=1; $num<=$nCorsi; $num++){
             WHERE id_corso = $num AND valutazione IS NOT NULL
             )AS INT )WHERE id = $num ";
     $connessione->query($sqlVal);
-    // $stmtVal = $connessione->prepare($sqlVal);
-    // $stmtVal->execute();
 
     // numero di valutazioni per corso
     $sqlNU = "UPDATE Corsi
@@ -31,10 +29,8 @@ for($num=1; $num<=$nCorsi; $num++){
     WHERE id_corso = $num AND valutazione IS NOT NULL
     )
     WHERE id = $num";
-    $stmtNU = $connessione->prepare($sqlNU);
-    $stmtNU->execute();    
+    $connessione->query($sqlNU);
+   
 }
 $stmtCount->close();
-$stmtVal->close();
-$stmtNU->close();
 ?>
