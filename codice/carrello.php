@@ -88,19 +88,7 @@
 								<div class="rating"> 
 									<div class="stars"> 
 										<?php 
-										$gialla=0;
-										$grigia=0;
-										
-										if ($valutazioneMedia !== NULL && $valutazioneMedia >= 0 && $valutazioneMedia < 6) {
-											$gialla = $valutazioneMedia;
-											$grigia = 5-$valutazioneMedia;
-											for ($j = 0; $j < $gialla; $j++) { echo '<img src="../assets/icon/star/gialla.svg" alt="stella gialla" height="30">'; }
-											for ($j = 0; $j < $grigia; $j++) { echo '<img src="../assets/icon/star/grigia.svg" alt="stella grigia" height="30">'; }
-										}
-
-										if ($valutazioneMedia === NULL) {
-											for ($j = 0; $j < 5; $j++) { echo '<img src="../assets/icon/star/grigia.svg" alt="stella grigia" height="30">'; }
-										}
+											include 'stelline.php';
 										?>
 									</div>
 									<div class="last">
