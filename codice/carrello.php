@@ -161,7 +161,8 @@
 					url: "vaiAlPagamento.php", 
 					type: "POST",
 					success: function(response) {
-						$("#rispostaVaiAlPagamento").html(response);
+						// $("#rispostaVaiAlPagamento").html(response);
+						location.reload();
 					}
 				});
 			});
