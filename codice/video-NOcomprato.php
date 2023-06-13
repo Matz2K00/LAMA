@@ -42,90 +42,91 @@
 		<div class="video-info__right">
 			<div class="valutazione">
 				<p>E' stato valutato</p>
-			
-			<?php
-				include 'stelline.php';
-			?>
+				<div class="stars">
+					<?php
+						include 'stelline.php';
+					?>
+				</div>
 			</div> 
 
-	<div class="prezzo">
-		<p><?php echo $prezzo." €"; ?></p>
-		<p>Disponibilità immediata</p>
-		<p>Il corso sarà disponibile<br>in <b>I miei corsi</b><br>Non ha una scadenza</p>
-		<p>Potrai guardarlo più volte<br>nell'ordine che preferisci</p>
+			<div class="prezzo">
+				<p><?php echo $prezzo." €"; ?></p>
+				<p>Disponibilità immediata</p>
+				<p>Il corso sarà disponibile<br>in <b>I miei corsi</b><br>Non ha una scadenza</p>
+				<p>Potrai guardarlo più volte<br>nell'ordine che preferisci</p>
 
-		<?php 
-		include 'cookie.php';
-		if (in_array($id, $corsi)) {
-			echo '<button class="carrelloBtn">Aggiunto</button>';
-		} else {
-			echo '<button class="carrelloBtn" id="aggiungiAlCarrello" onclick="showCheck()">Aggiungi al carrello</button>';
-		}
-		?>
-		<script>
-			$(document).ready(function() {
-				$("#aggiungiAlCarrello").click(function() {
-					var id_corso = parseInt(<?php echo intval($id_corso);?>);
-					$.ajax({
-						url: "aggiungiAlCarrello.php", 
-						type: "POST",
-						data: { id_corso: id_corso }, 
-						success: function(response) {
-							setTimeout(function() {
-							location.reload();
-							}, 60000); // Ritardo di 1 minuto
-						}
+				<?php 
+				include 'cookie.php';
+				if (in_array($id, $corsi)) {
+					echo '<button class="carrelloBtn">Aggiunto</button>';
+				} else {
+					echo '<button class="carrelloBtn" id="aggiungiAlCarrello" onclick="showCheck()">Aggiungi al carrello</button>';
+				}
+				?>
+				<script>
+					$(document).ready(function() {
+						$("#aggiungiAlCarrello").click(function() {
+							var id_corso = parseInt(<?php echo intval($id_corso);?>);
+							$.ajax({
+								url: "aggiungiAlCarrello.php", 
+								type: "POST",
+								data: { id_corso: id_corso }, 
+								success: function(response) {
+									setTimeout(function() {
+									location.reload();
+									}, 60000); // Ritardo di 1 minuto
+								}
+							});
+						});
 					});
-				});
-			});
-			function showCheck() {
-				var button = document.getElementById("aggiungiAlCarrello");
-				button.innerHTML = '<i class="fas fa-check"></i>';
-			}
-		</script>
+					function showCheck() {
+						var button = document.getElementById("aggiungiAlCarrello");
+						button.innerHTML = '<i class="fas fa-check"></i>';
+					}
+				</script>
 
-		<?php
-			$_SESSION['id_corso'] = $id_corso;
-			if(!isset($_SESSION['id_utente'])){
-				echo '<button class="primaAccedi acquistaBtn">Acquista ora</button> ';
-		?>
-			<script>
-				document.addEventListener('DOMContentLoaded', function() {
-					var button = document.querySelector('.primaAccedi');
-					var nome = 'acquistaOra';
-					var acquisti = true;
-					var scadenza = new Date();
-					scadenza.setTime(scadenza.getTime() + 30 * 1000);
-					var scadenzaString = scadenza.toUTCString();
-					button.addEventListener('click', function() {
-					document.cookie = nome + "=" + acquisti + "; expires=" + scadenzaString + "; path=/";
-					window.location.href = 'accesso.php';
-					});
-				});
-			</script>
+				<?php
+					$_SESSION['id_corso'] = $id_corso;
+					if(!isset($_SESSION['id_utente'])){
+						echo '<button class="primaAccedi acquistaBtn">Acquista ora</button> ';
+				?>
+					<script>
+						document.addEventListener('DOMContentLoaded', function() {
+							var button = document.querySelector('.primaAccedi');
+							var nome = 'acquistaOra';
+							var acquisti = true;
+							var scadenza = new Date();
+							scadenza.setTime(scadenza.getTime() + 30 * 1000);
+							var scadenzaString = scadenza.toUTCString();
+							button.addEventListener('click', function() {
+							document.cookie = nome + "=" + acquisti + "; expires=" + scadenzaString + "; path=/";
+							window.location.href = 'accesso.php';
+							});
+						});
+					</script>
 
-		<?php
-		} else {
-			echo '<button class="acquistaOra acquistaBtn">Acquista ora</button> ';
-			?>
-			<script>
-				$(document).ready(function() {
-					$(".acquistaOra").click(function() {
-						$.ajax({
-						url: "acquistaOra.php", 
-						type: "POST",
-						success: function(response) {
-							location.reload();
-						}
+				<?php
+				} else {
+					echo '<button class="acquistaOra acquistaBtn">Acquista ora</button> ';
+					?>
+					<script>
+						$(document).ready(function() {
+							$(".acquistaOra").click(function() {
+								$.ajax({
+								url: "acquistaOra.php", 
+								type: "POST",
+								success: function(response) {
+									location.reload();
+								}
+							});
+						});
 					});
-				});
-			});
-			</script>
-			<?php
-		}
-		?>
-		</div>
-		</div>
+					</script>
+					<?php
+				}
+				?>
+				</div>
+				</div>
 	</div>
 	<div class="other" >
 		<a href="cerca.php">Altri corsi</a>
