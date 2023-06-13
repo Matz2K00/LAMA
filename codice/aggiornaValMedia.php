@@ -27,12 +27,12 @@ $stmtNU = $connessione->prepare("UPDATE Corsi
     WHERE id = ?");
 
 // aggiorno ogni corso
-for($i=1; $i<=$nCorsi; $i++){
+for($num=1; $num<=$nCorsi; $num++){
     
-    $stmtVal->bind_param("ii", $i, $i);
+    $stmtVal->bind_param("ii", $num, $num);
     $stmtVal->execute();
 
-    $stmtNU->bind_param("ii", $i, $i);
+    $stmtNU->bind_param("ii", $num, $num);
     $stmtNU->execute();
 }
 $stmtCount->close();
