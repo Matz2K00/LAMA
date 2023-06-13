@@ -48,7 +48,6 @@
 		<div class="video-info__right">
 			<div class="valutazione">
 				<p><?php echo ($valutazione !== NULL) ? "<p>La tua valutazione</p>" : "<p>Valuta il corso</p>"; ?></p>
-			</div> 
 			<?php
 				if ($valutazione !== NULL && $valutazione >= 0 && $valutazione < 6) {
 					$gialla = $valutazione;
@@ -57,13 +56,14 @@
 					for ($i = 0; $i < $grigia; $i++) { echo '<img src="../assets/icon/star/grigia.svg" alt="stella grigia" height="30">'; }
 				}
 			?>
-			<div class="stars">
-				<?php
-					if ($valutazione === NULL) {
-						for ($i = 0; $i < 5; $i++) { echo '<img src="../assets/icon/star/grigia.svg" alt="stella grigia" height="30" class="star" data-value="'.$i.'">'; }
-					}
-				?>
-			</div>
+				<div class="stars">
+					<?php
+						if ($valutazione === NULL) {
+							for ($i = 0; $i < 5; $i++) { echo '<img src="../assets/icon/star/grigia.svg" alt="stella grigia" height="30" class="star" data-value="'.$i.'">'; }
+						}
+					?>
+				</div>
+			</div> 
 		</div>
 		<?php if ($valutazione !== NULL){ echo '<p class="annullaValutazione">Annulla valutazione</p>';}?>
 	</div>
