@@ -12,7 +12,7 @@
         $cognome = htmlspecialchars(trim($_POST["lastname"]));
         $email = trim($_POST["email"]);
 
-        $utenti_pattern = "/^[\\w\\s'àèéìòù]*$/u";
+        $utenti_pattern = "^[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ']*$";
 
         if(preg_match($utenti_pattern, $nome)){
             $_SESSION["error"] = "<p>Errore in nome</p>";

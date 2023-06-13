@@ -16,14 +16,14 @@
 	$sqlWithLimit = $sql . " LIMIT ?, ?";
 	
 	if (isset($_GET['keyword']) && !empty($_GET['keyword'])) {
-		$stmtWithLimit = $conn->prepare($sqlWithLimit);
+		$stmtWithLimit = $connessione->prepare($sqlWithLimit);
 		if($val === true){
 			$stmtWithLimit->bind_param("iii", $numeroVal, $inizio, $corsiPerPagina);
 		} else {
 			$stmtWithLimit->bind_param("ssssii", $keyword, $keyword, $keyword, $keyword, $inizio, $corsiPerPagina);
 		}
 	} else {
-		$stmtWithLimit = $conn->prepare($sqlWithLimit);
+		$stmtWithLimit = $connessione->prepare($sqlWithLimit);
 		$stmtWithLimit->bind_param("ii", $inizio, $corsiPerPagina);
 	}
 	

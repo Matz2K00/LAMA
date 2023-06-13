@@ -39,7 +39,7 @@
         <?php
         include 'db.php';
         
-        if ($connessione->connessioneect_error) {
+        if ($connessione->connect_error) {
             die("connessioneessione al database fallita");
             header("Location: signUp.php");
             exit();
