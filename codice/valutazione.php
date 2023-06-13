@@ -26,11 +26,11 @@
 
     // aggiorno valutazioneMedia
     $stmt = $connessione->prepare("UPDATE Corsi
-        SET valutazioneMedia = CAST( (
+        SET valutazioneMedia = (
         SELECT AVG(valutazione) AS media_valutazione
         FROM Acquisti
         WHERE id_corso = ? AND valutazione IS NOT NULL
-        )AS INT )WHERE id = ? ");
+        )WHERE id = ? ");
     $stmt->bind_param("ii", $id_corso, $id_corso);
     $stmt->execute();
     $stmt->close();
