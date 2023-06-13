@@ -96,7 +96,7 @@ include 'navbar.php';
         <div class="corsi-wrapper">
         <?php
         include "corsiPerPagina.php";
-        unset($keyword);
+        
 
         $stmt->close();
         $stmtCount->close();
@@ -108,7 +108,9 @@ include 'navbar.php';
             <?php include "indicePagina.php";?>
         </div>
 </div>
-
-<?php include 'footer.php';?>
+<?php 
+unset($keyword);
+include 'footer.php';
+?>
 </body>
 </html>

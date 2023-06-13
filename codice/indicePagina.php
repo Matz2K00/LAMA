@@ -10,10 +10,20 @@
 	} else {
 		$paginaSucessiva = $paginaCorrente+1;
 	}
-	// spostarsi indietro
-	echo "<a href='cerca.php?keyword=$keywordEscape&pagina=$paginaPrecedente'><<</a>";
-	// pagina attuale
-	echo '<button>Pagina ' . $paginaCorrente . ' di ' . $totalPagine.'</button>';
-	// spostarsi avanti
-	echo "<a href='cerca.php?keyword=$keywordEscape&pagina=$paginaSucessiva'>>></a>";
+
+	if(!empty($keywordEscape)){
+		// spostarsi indietro
+		echo "<a href='cerca.php?keyword=$keywordEscape&pagina=$paginaPrecedente'><<</a>";
+		// pagina attuale
+		echo '<button>Pagina ' . $paginaCorrente . ' di ' . $totalPagine.'</button>';
+		// spostarsi avanti
+		echo "<a href='cerca.php?keyword=$keywordEscape&pagina=$paginaSucessiva'>>></a>";
+	} else {
+		// spostarsi indietro
+		echo "<a href='cerca.php?pagina=$paginaPrecedente'><<</a>";
+		// pagina attuale
+		echo '<button>Pagina ' . $paginaCorrente . ' di ' . $totalPagine.'</button>';
+		// spostarsi avanti
+		echo "<a href='cerca.php?pagina=$paginaSucessiva'>>></a>";
+	}
 ?>
