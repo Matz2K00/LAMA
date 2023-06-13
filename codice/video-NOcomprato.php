@@ -36,12 +36,10 @@ $stmt->close();
 $conn->close();
 ?>  
 
-<div class="video-wrapper">
-  <video width="50%" height="50%" controls>
-    <source src="../assets/video.mp4" type="video/mp4">
+<video poster='<?php echo $urlImg; ?>' width="50%" height="50%" controls>
+  <source src="../assets/video.mp4" type="video/mp4">
   Your browser does not support the video tag.
-  </video>
-</div>
+</video>
 <div class="video-info">
   <div class="video-info__left">
     <!-- <img src='<?php echo $urlImg; ?>' alt='<?php echo $altImg; ?>' height="300"> -->
