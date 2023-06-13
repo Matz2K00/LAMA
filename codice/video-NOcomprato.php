@@ -28,8 +28,6 @@
 	} else {
 		echo "Non esiste il corso selezionato";
 	}
-	$stmt->close();
-	$connessione->close();
 	?>  
 
 	<video poster='<?php echo $urlImg; ?>' width="50%" height="50%">
