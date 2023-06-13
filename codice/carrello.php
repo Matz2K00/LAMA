@@ -48,22 +48,24 @@
                 exit();
             }
 			
-			$corsi = $_COOKIE['corsi'];
-			$array = unserialize($corsi);
-			$stmt = $connessione->prepare("SELECT * FROM Corsi WHERE id = ? ");
+			if(isset($_COOKIE['corsi'])){
+				$corsi = $_COOKIE['corsi'];
+				$array = unserialize($corsi);
+			}
+			
 			$array = unserialize($corsi);
 			$values = array_values($array);
-			
+	
 			$totalePrezzo=0;
-			for ($i = 0; $i < count($array); $i++) {
-				$id_corso_cookie = $values[$i];
-				echo $id_corso_cookie;
+			for ($j = 0; $j < count($array); $j++) {
+				$id_corso_cookie = $values[$j];
+
 				if (!is_int($id_corso_cookie)) {
 					echo "<p>Errore: il corso aggiunto al carrello non esiste! </p>";
 					header("Location: carrello.php");
 					exit();
 				}
-				
+				$stmt = $connessione->prepare("SELECT * FROM Corsi WHERE id = ? ");
 				$stmt->bind_param("i", $id_corso_cookie);
 				$stmt->execute();
 				$result = $stmt->get_result();
