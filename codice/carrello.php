@@ -53,7 +53,7 @@
 			$stmt = $connessione->prepare("SELECT * FROM Corsi WHERE id = ? ");
 			$array = unserialize($corsi);
 			$values = array_values($array);
-			
+			$totalePrezzo=0;
 			for ($i = 0; $i < count($array); $i++) {
 				$id_corso_cookie = $values[$i];
 				
