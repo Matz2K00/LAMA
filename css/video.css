@@ -1,0 +1,254 @@
+.video-page {
+    background: #fff;
+    height: 100%;
+    padding: 100px 12%;
+}
+
+video {
+    width: 100%;
+    height: auto;
+}
+
+.video-info {
+    padding-top: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.video-info__left {
+    width: 60%;
+    color: var(--blu);
+}
+
+.video-info__left h2{
+    font-size: 2.625rem;
+    font-weight: bold;
+}
+
+.video-info__left p:first-of-type {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.video-info__left p:last-of-type {
+    font-size: 1.25rem;
+    font-weight: normal;
+    padding-top: 20px;
+}
+
+.video-info__right {
+    width: 30%;
+}
+
+.valutazione {
+    background: var(--panna);
+    color: var(--blu);
+    text-align: center;
+    border-radius: 15px;
+    padding: 15px;
+}
+
+.valutazione div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.prezzo {
+    background: #59a7e3;
+    color: #fff;
+    border-radius: 15px;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+.prezzo p:nth-child(1) {
+    font-size: 3.3rem;
+    font-weight: bold;
+    padding: 0;
+}
+
+.prezzo p:nth-child(2) {
+    font-size: 1.36rem;
+    font-weight: bold;
+    padding: 0;
+}
+
+.prezzo p {
+    font-size: 1.125rem;
+    font-weight: normal;
+    padding-top: 20px;
+}
+
+.carrelloBtn {
+    background: #fff;
+    color: var(--blu);
+    width: 100%;
+    text-align: center;
+    border-radius: 20px;
+    padding: 8px 0;
+    margin-top: 20px;
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+.acquistaBtn {
+    background: var(--giallo);
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    border-radius: 20px;
+    padding: 8px 0;
+    margin-top: 20px;
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+.other {
+    color: var(--blu) !important;
+    text-decoration: underline;
+    padding: 80px 0 40px 0;
+}@import url("./reset.css");
+@import url("./font.css");
+
+:root {
+    --giallo: #ffbd59;
+    --blu: #3b6f96;
+    --panna: #fef7e6;
+
+    --fontCP-regular: "CodecPro";
+    --fontCP-regularI: "CodecPro italic";
+    --fontCP-bold: "CodecProBold";
+    --fontCP-boldI: "CodecProBold italic";
+}
+
+body{
+    font-family: var(--fontCP-regular);
+    letter-spacing: 0.022em; /* non lo prende */
+    background-color: var(--giallo); /* test for navbar */
+}
+
+a, a:hover, a:visited, a:active {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    all: unset;
+}
+
+/** VIDEO **/
+
+.video-page {
+    background: #fff;
+    height: 100%;
+    padding: 100px 12%;
+}
+
+video {
+    width: 100%;
+    height: auto;
+}
+
+.video-info {
+    padding-top: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.video-info__left {
+    width: 60%;
+    color: var(--blu);
+}
+
+.video-info__left h2{
+    font-size: 2.625rem;
+    font-weight: bold;
+}
+
+.video-info__left p:first-of-type {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.video-info__left p:last-of-type {
+    font-size: 1.25rem;
+    font-weight: normal;
+    padding-top: 20px;
+}
+
+.video-info__right {
+    width: 30%;
+}
+
+.valutazione {
+    background: var(--panna);
+    color: var(--blu);
+    text-align: center;
+    border-radius: 15px;
+    padding: 15px;
+}
+
+.valutazione div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.prezzo {
+    background: #59a7e3;
+    color: #fff;
+    border-radius: 15px;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+.prezzo p:nth-child(1) {
+    font-size: 3.3rem;
+    font-weight: bold;
+    padding: 0;
+}
+
+.prezzo p:nth-child(2) {
+    font-size: 1.36rem;
+    font-weight: bold;
+    padding: 0;
+}
+
+.prezzo p {
+    font-size: 1.125rem;
+    font-weight: normal;
+    padding-top: 20px;
+}
+
+.carrelloBtn {
+    background: #fff;
+    color: var(--blu);
+    width: 100%;
+    text-align: center;
+    border-radius: 20px;
+    padding: 8px 0;
+    margin-top: 20px;
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+.acquistaBtn {
+    background: var(--giallo);
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    border-radius: 20px;
+    padding: 8px 0;
+    margin-top: 20px;
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+.other {
+    color: var(--blu) !important;
+    text-decoration: underline;
+    padding: 80px 0 40px 0;
+}
