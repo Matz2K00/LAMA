@@ -39,7 +39,6 @@
 	</video>
 	<div class="video-info">
 		<div class="video-info__left">
-			<?php echo $urlImg; ?>' alt='<?php echo $altImg; ?>
 			<h2><?php echo $titolo; ?></h2>
 			<p><?php echo $autore; ?></p>
 			<p><?php echo $descrizione; ?></p>

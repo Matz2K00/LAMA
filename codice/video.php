@@ -13,11 +13,10 @@
 <meta name="author " content="Belloni Laura, Contegno Matteo">
 </head>
 <body>
-	<?php include 'navbar.php';?>
-
 	<div class="video-page">
 		<?php 
 			require 'sessionStart.php';
+			include 'navbar.php';
 			if(!isset($_SESSION['id_corso'])){
 				echo "<p> Non ci sono video selezionati</p>";
 				exit();
