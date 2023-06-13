@@ -26,6 +26,7 @@ include 'navbar.php';
             <input type="text" name="keyword" placeholder="Cerca" <?php if(!empty($_GET['keyword'])) {echo 'value="' . $_GET['keyword'] . '" style="color: #3b6f96;"';} ?> >
         </form>
     </div>
+
     <script>
     function handleKeyPress(event) {
         if (event.keyCode === 13) {
@@ -64,7 +65,7 @@ include 'navbar.php';
                         $sqlCount = "SELECT COUNT(*) AS total FROM Corsi WHERE valutazioneMedia = ? ";
                         $stmtCount = $connessione->prepare($sqlCount);
                         $stmtCount->bind_param("i", $numeroVal);
-                        $start = "<p class='result'>Risultati per valutazione media di <b>" . $numeroVal . "</b></p>";
+                        $start = "<p class='start'>Risultati per valutazione media di <b>" . $numeroVal . "</b></p>";
                         $end = "<p class='result'>Non ci sono corsi con valutazione media di <b>" . $numeroVal . "</b></p>";
                         $val = true;
                     } 
@@ -78,7 +79,7 @@ include 'navbar.php';
                 $stmtCount = $connessione->prepare($sqlCount);
                 $stmtCount->bind_param("ssss", $keyword, $keyword, $keyword, $keyword);
 
-                $start = "<p class='result'>Risultati per: <b>" . $keywordEscape . "</b></p>";
+                $start = "<p class='start'>Risultati per: <b>" . $keywordEscape . "</b></p>";
                 $end = "<p class='result'>Non ci sono corsi disponibili per: <b>" . $keywordEscape . "</b></p>";
             }
         } else {
@@ -87,7 +88,7 @@ include 'navbar.php';
             $sqlCount = "SELECT COUNT(*) AS total FROM Corsi";
             $stmtCount = $connessione->prepare($sqlCount);
             
-            $start = "<p class='result'>Tutti i <b>nostri</b> corsi</p>";
+            $start = "<p class='start'>Tutti i <b>nostri</b> corsi</p>";
             $end = "<p class='result'>Corsi esauriti</p>";
         }
         echo $start;
