@@ -13,22 +13,25 @@ $nCorsi = intval($row['numero_righe']);
 // aggiorno ogni corso
 for($num=1; $num<=$nCorsi; $num++){
 // valutazione media
-    $stmtVal = $connessione->prepare("UPDATE Corsi
-        SET valutazioneMedia = CAST(
-        (SELECT AVG(valutazione) AS media_valutazione
-        FROM Acquisti
-        WHERE id_corso = $num AND valutazione IS NOT NULL
-        )AS INT )WHERE id = $num ");
-    $stmtVal->execute();
+    $sqlVal = "UPDATE Corsi
+            SET valutazioneMedia = CAST(
+            (SELECT AVG(valutazione) AS media_valutazione
+            FROM Acquisti
+            WHERE id_corso = $num AND valutazione IS NOT NULL
+            )AS INT )WHERE id = $num ";
+    $connessione->query($sqlVal);
+    // $stmtVal = $connessione->prepare($sqlVal);
+    // $stmtVal->execute();
 
     // numero di valutazioni per corso
-    $stmtNU = $connessione->prepare("UPDATE Corsi
-        SET nUtentiValut = (
-        SELECT COUNT(DISTINCT id_utente)
-        FROM Acquisti
-        WHERE id_corso = $num AND valutazione IS NOT NULL
-        )
-        WHERE id = $num");
+    $sqlNU = "UPDATE Corsi
+    SET nUtentiValut = (
+    SELECT COUNT(DISTINCT id_utente)
+    FROM Acquisti
+    WHERE id_corso = $num AND valutazione IS NOT NULL
+    )
+    WHERE id = $num";
+    $stmtNU = $connessione->prepare($sqlNU);
     $stmtNU->execute();    
 }
 $stmtCount->close();
