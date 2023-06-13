@@ -14,11 +14,11 @@ $nCorsi = intval($row['numero_righe']);
 for($num=1; $num<=$nCorsi; $num++){
 // valutazione media
     $sqlVal = "UPDATE Corsi
-            SET valutazioneMedia = CAST(
+            SET valutazioneMedia =
             (SELECT AVG(valutazione) AS media_valutazione
             FROM Acquisti
             WHERE id_corso = $num AND valutazione IS NOT NULL
-            )AS INT )WHERE id = $num ";
+            )WHERE id = $num ";
     $connessione->query($sqlVal);
 
     // numero di valutazioni per corso
