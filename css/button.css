@@ -1,14 +1,5 @@
-/* :root {
-    --bianco: #FFFFFF;
-    --marrone-scuro: #5D3A00;
-    --marrone-chiaro: #E7CFBC;
-    letter-spacing: 0.05em;
-    font-family: 'Times New Roman', Times, serif;
-} */
-
 .container {
     width: 92%;
-    /* min-height: 20%; */
     height: 50%;
     border-radius: 5pt;
     margin: 2% auto;

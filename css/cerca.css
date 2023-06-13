@@ -45,11 +45,11 @@ input {
     font-weight: bold;
     height: 55px;
 }
- 
+
 input::placeholder{
     color:  var(--blu);
 }
- 
+
 input:active {
     outline: 2px solid var(--blu);
 }

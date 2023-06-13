@@ -1,3 +1,3 @@
 <?php 
-include ("codice/registration.php");
+    include ("codice/registration.php");
 ?>

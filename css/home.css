@@ -35,7 +35,6 @@
 
 .section-1__right {
     width: 50%;
-    /* background: var(--panna); */
     color: var(--giallo);
     text-align: right;
     font-size: 2.78rem;
@@ -273,10 +272,6 @@
 .section-6 p {
     position: absolute;
     width: 76%;
-    /* height: 100%; */
-    /* align-items: center; */
-    /* display: flex; */
-    /* justify-content: left; */
     font-size: 5.46rem;
     font-weight: bold;
     line-height: 1.03em;

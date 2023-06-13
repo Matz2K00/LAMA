@@ -14,7 +14,6 @@
 
 body{
     font-family: var(--fontCP-regular);
-    letter-spacing: 0.022em; /* non lo prende */
     background-color: var(--giallo); /* test for navbar */
 }
 
@@ -26,8 +25,8 @@ a, a:hover, a:visited, a:active {
 button {
     all: unset;
 }
-/** VIDEO **/
 
+/** VIDEO **/
 .video-page {
     background: #fff;
     height: 100%;

@@ -40,10 +40,6 @@
     padding-top: 5px;
 }
 
-/* .info p:first-of-type {
-    font-style: italic;
-} */
-
 .stars {
     display: flex;
     flex-direction: row;

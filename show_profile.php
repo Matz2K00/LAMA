@@ -1,3 +1,3 @@
 <?php 
-include ("codice/show_profile.php");
+    include ("codice/show_profile.php");
 ?>

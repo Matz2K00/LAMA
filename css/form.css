@@ -85,8 +85,8 @@ input{
 }
 
 .showError{
-    /* color: red; */
-    /* font: normal normal normal 18px/24px times; */
+    color: red;
+    font: normal normal normal 18px/24px times; 
     text-align: center;
     margin-top: 30px;
 }
