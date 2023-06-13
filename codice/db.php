@@ -1,8 +1,8 @@
 <?php
 $hostData = "localhost";
-$userData = "root";
-$paswData = "";
-$database = "LAMA";
+$userData = "S4834997";
+$paswData = "dGnoA9xH58YmikW";
+$database = "S4834997";
 
 $connessione = new mysqli($hostData, $userData, $paswData, $database);
 ?>
