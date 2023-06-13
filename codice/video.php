@@ -44,11 +44,11 @@
       $result = $stmt->get_result();
 
       if ($result->num_rows <= 0){
-        echo "<p>Non hai comprato questo corso </p>";
+        // echo "<p>Non hai comprato questo corso </p>";
         include 'video-NOcomprato.php';
       }
       else {
-        echo "<p>Hai comprato questo corso </p>";
+        // echo "<p>Hai comprato questo corso </p>";
         include 'video-comprato.php';
       }
       $stmt->close();
