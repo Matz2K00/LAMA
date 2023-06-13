@@ -12,7 +12,7 @@
 <meta name="author " content="Belloni Laura, Contegno Matteo">
 </head>
 <body>
-<?php include 'navbar.php';?>
+<?php //include 'navbar.php';?>
 <?php
 	if(isset($err)){
 		echo "<p> ".$err." </p>";
@@ -57,7 +57,8 @@ if ($resultNome->num_rows > 0) {
 <div class="carrello-page">
 	<div class="title">
 		<img class="cart" src="../assets/icon/navbar/Carrello-senzasfondo.png" alt="icona bianca del carrello stilizzato">
-		<h1>  Il tuo carrello <?php echo $_SESSION['nome'];?><h1>
+		<h1>  Il tuo carrello <?php echo ($_SESSION['nome']) ? $_SESSION['nome'] : ""; ?>
+<h1>
 	</div>
 	<div class="carrello-wrapper">
 		<?php 
@@ -128,6 +129,7 @@ if ($resultNome->num_rows > 0) {
 										<p class="price">Prezzo: <?php echo $prezzo; ?> €</p>
 									</div>
 								</div>
+							</div>
 							</button>
 							<div class="cestino">
 								<img  class="rimuoviDalCarrello" data-id-corso="<?php echo $id_corso_cookie; ?>"src="../assets/icon/cestino.svg" alt="icona di un cestino stilizzato" height="30">
