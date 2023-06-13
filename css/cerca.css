@@ -2,6 +2,7 @@
     width: 100%;
     height: auto;
     background: var(--panna);
+    z-index: 1;
 }
 
 .searchbar {
@@ -22,13 +23,13 @@ form button {
 
 .corsi-wrapper {
     width: 100%;
-    padding: 80px 12% 0 12%;
+    padding: 0px 12% 0 12%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
     min-height: 100vh;
-    transform: translateY(-15%);
+    transform: translateY(-10%);
 }
 
 input {
